@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" sizes="48x48" href="Img/B4U_favicon.png"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome B4U!</title>
+    <style>
+        /* navbar CSS */
+        .navbar{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+        .BFU{
+            font-family: 'Lobster', cursive;
+            border: 0;
+            outline: 0;
+            background-color: white;
+            width:210px;
+            margin-left: 80px;
+        }
+        .BFU p{
+            display:inline-block;
+        }
+        .BFU img{
+            width: 200px;
+            height: 80px;
+            margin-top: 30px;
+        }
+        .navMid{
+            font-family: 'IBM Plex Sans KR', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .navMid_ul {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .navMid_ul li{
+            display: inline-block;
+            width: 90px;
+        }
+        .Btn{
+            border: 0;
+            outline: 0;
+            background-color: white;   
+            margin-right: 10px; 
+            margin-left: 10px;
+        }
+        .navEnd{
+            margin-right: 80px;
+        }
+        .navEnd span{
+            color:rgb(83, 46, 0)
+        }
+
+        /* carousel CSS */
+        .carousel-item img{
+            height: 600px;
+        }
+        .carousel{
+            margin: 60px 0px 0px 0px;
+            z-index: 20;
+        }
+        .carousel_headtext{
+            text-align: left;
+            margin-bottom: 300px;
+        }
+        .carousel_headtext h1{
+            font-family: 'Gugi', cursive;
+            font-size: 60px;
+        }
+        .carousel_headtext p{
+            font-family: 'Pacifico', cursive;
+            font-size:25px;
+        }
+        .carousel_subtext{
+            margin-bottom:20px;
+            text-align: right;
+        }
+        .name{
+            vertical-align: middle;
+            display:inline-block; 
+            background-color: rgba(0, 0, 0, 0.5); 
+            width:350px; 
+            border-color: rgba(0, 0, 0, 0.5);
+            text-align:center; 
+            height: 60px;
+            line-height: 60px;
+            font-family: 'Gugi', cursive;
+            font-size: 30px;
+            margin-bottom: 0px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        .top5{
+            display: block;
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+        .top5 h1{
+            text-align: center;
+            font-size: 30px;
+            font-family: 'Do Hyeon', sans-serif;
+        }
+
+        /* HomeContent CSS */
+
+        .places{
+            margin-left:200px;
+            margin-right:200px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .top_1, .top_2{
+            margin-bottom: 30px;
+
+        }
+        .top_1_img{
+            width:700px;
+            height:400px;
+            margin-right: 30px;
+        }
+        .top_2_img{
+            width:700px;
+            height:400px;
+            margin-left: 30px;
+        }
+        .top_1 a, .top_2 a, .top_345 a{
+            text-decoration: none;
+            color: black;
+            font-family: 'Do Hyeon', sans-serif;
+            display: inline-block;
+
+        }
+        .top_1 a div, .top_2 a div{
+            display: inline-block;
+        }
+        .top_1 a :last-child div, top_2 a :first-child div{
+            display: block;
+        }
+        .top_1_explain, .top_2_explain{
+            width: 400px;
+            height: 250px;
+            text-align: left;
+        }
+        .top_345{
+            margin-bottom: 400px;
+            height: 600px;
+        }
+        .top_345_explain{
+            width: 400px;
+            height: 200px;
+            text-align: left;
+            margin-left: 10px;
+        }
+        .top_345 div{
+            display: inline-block;
+        }
+        .top_3, .top_4{
+            width: 340px;
+            height: 550px;
+            margin-right: 26px;
+        }
+        .top_5{
+            width: 340px;
+            height: 550px;
+        }
+        .top_3 img, .top_4 img, .top_5 img{
+            width: 340px;
+            height: 250px;
+        }
+        .top_1 img, .top_2 img, .top_345 img{
+            transition: 0.3s;
+        } 
+        .img_div{
+            overflow: hidden;
+        }
+        .top_1 a:hover img, .top_1 a:focus img,
+        .top_2 a:hover img, .top_2 a:focus img,
+        .top_345 a:hover img, .top_345 a:focus img{
+            transform: scale(1.2);
+        }
+        /* Footer CSS */
+        #wrap {
+            min-height: 100%;
+            position: relative;
+            width: 100%;
+            font-family: 'IBM Plex Sans KR', sans-serif;
+        }
+
+        footer {
+            padding-top:20px;
+            width: 100%;
+            height: 240px; 
+            bottom: 0;
+            position: absolute;
+            background-color: #161616;
+            color:#666666;
+            font-size:18px;
+            text-align:center;
+        }
+        .white{
+            color:white;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .gray{
+            font-weight:bold;
+            text-align:left;
+        }
+        .but_logo img{
+            width: 30px;
+            height: 30px;
+        }
+        .footer_end{
+            margin-top: 30px;
+            text-align: left; 
+            margin-left: 70px; 
+        }
+        .footer_end span{
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Part -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:white; height: 60px;">
+        <div class="container-fluid">
+            
+            <button class="navbar-brand BFU" href="#">
+                <img src="Img/BusanForU Logo3.png">
+            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navMid" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 navMid_ul">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">추천</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">코스</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">관광지</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">커뮤니티</a>
+                    </li>
+                </ul>
+                <div class="navEnd">
+                    <button class="Btn">로그인</button>
+                    <span>|</span>
+                    <button class="Btn" sty>회원가입</button>
+                    <span>|</span>
+                    <button class="Btn" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel Part -->
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="Img/carousel1_ohryukdo.png" class="d-block w-100" >
+                <div class="carousel-caption d-none d-md-block carousel_headtext" >
+                    <h1>부산에서 나를 치유하자</h1>
+                    <p>BUSAN 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-balloon-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="m8 2.42-.717-.737c-1.13-1.161-3.243-.777-4.01.72-.35.685-.451 1.707.236 3.062C4.16 6.753 5.52 8.32 8 10.042c2.479-1.723 3.839-3.29 4.491-4.577.687-1.355.587-2.377.236-3.061-.767-1.498-2.88-1.882-4.01-.721L8 2.42Zm-.49 8.5c-10.78-7.44-3-13.155.359-10.063.045.041.089.084.132.129.043-.045.087-.088.132-.129 3.36-3.092 11.137 2.624.357 10.063l.235.468a.25.25 0 1 1-.448.224l-.008-.017c.008.11.02.202.037.29.054.27.161.488.419 1.003.288.578.235 1.15.076 1.629-.157.469-.422.867-.588 1.115l-.004.007a.25.25 0 1 1-.416-.278c.168-.252.4-.6.533-1.003.133-.396.163-.824-.049-1.246l-.013-.028c-.24-.48-.38-.758-.448-1.102a3.177 3.177 0 0 1-.052-.45l-.04.08a.25.25 0 1 1-.447-.224l.235-.468ZM6.013 2.06c-.649-.18-1.483.083-1.85.798-.131.258-.245.689-.08 1.335.063.244.414.198.487-.043.21-.697.627-1.447 1.359-1.692.217-.073.304-.337.084-.398Z"/>
+                        </svg>
+                    </p>    
+                </div>
+                <div class="carousel-caption d-none d-md-block carousel_subtext">
+                    <div class="name">
+                        <p>오륙도</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="Img/carousel2_gamcheon.jpg" class="d-block w-100" >
+                <div class="carousel-caption d-none d-md-block carousel_headtext" >
+                    <h1>부산에서 나를 치유하자</h1>
+                    <p>BUSAN 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-balloon-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="m8 2.42-.717-.737c-1.13-1.161-3.243-.777-4.01.72-.35.685-.451 1.707.236 3.062C4.16 6.753 5.52 8.32 8 10.042c2.479-1.723 3.839-3.29 4.491-4.577.687-1.355.587-2.377.236-3.061-.767-1.498-2.88-1.882-4.01-.721L8 2.42Zm-.49 8.5c-10.78-7.44-3-13.155.359-10.063.045.041.089.084.132.129.043-.045.087-.088.132-.129 3.36-3.092 11.137 2.624.357 10.063l.235.468a.25.25 0 1 1-.448.224l-.008-.017c.008.11.02.202.037.29.054.27.161.488.419 1.003.288.578.235 1.15.076 1.629-.157.469-.422.867-.588 1.115l-.004.007a.25.25 0 1 1-.416-.278c.168-.252.4-.6.533-1.003.133-.396.163-.824-.049-1.246l-.013-.028c-.24-.48-.38-.758-.448-1.102a3.177 3.177 0 0 1-.052-.45l-.04.08a.25.25 0 1 1-.447-.224l.235-.468ZM6.013 2.06c-.649-.18-1.483.083-1.85.798-.131.258-.245.689-.08 1.335.063.244.414.198.487-.043.21-.697.627-1.447 1.359-1.692.217-.073.304-.337.084-.398Z"/>
+                        </svg>
+                    </p>
+                </div>
+                <div class="carousel-caption d-none d-md-block carousel_subtext">
+                    <div class="name">
+                        <p>감천문화마을</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="Img/carousel3_haewoon.jpg" class="d-block w-100" >
+                <div class="carousel-caption d-none d-md-block carousel_headtext" >
+                    <h1>부산에서 나를 치유하자</h1>
+                    <p>BUSAN 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-balloon-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="m8 2.42-.717-.737c-1.13-1.161-3.243-.777-4.01.72-.35.685-.451 1.707.236 3.062C4.16 6.753 5.52 8.32 8 10.042c2.479-1.723 3.839-3.29 4.491-4.577.687-1.355.587-2.377.236-3.061-.767-1.498-2.88-1.882-4.01-.721L8 2.42Zm-.49 8.5c-10.78-7.44-3-13.155.359-10.063.045.041.089.084.132.129.043-.045.087-.088.132-.129 3.36-3.092 11.137 2.624.357 10.063l.235.468a.25.25 0 1 1-.448.224l-.008-.017c.008.11.02.202.037.29.054.27.161.488.419 1.003.288.578.235 1.15.076 1.629-.157.469-.422.867-.588 1.115l-.004.007a.25.25 0 1 1-.416-.278c.168-.252.4-.6.533-1.003.133-.396.163-.824-.049-1.246l-.013-.028c-.24-.48-.38-.758-.448-1.102a3.177 3.177 0 0 1-.052-.45l-.04.08a.25.25 0 1 1-.447-.224l.235-.468ZM6.013 2.06c-.649-.18-1.483.083-1.85.798-.131.258-.245.689-.08 1.335.063.244.414.198.487-.043.21-.697.627-1.447 1.359-1.692.217-.073.304-.337.084-.398Z"/>
+                        </svg>
+                    </p>
+                </div>
+                <div class="carousel-caption d-none d-md-block carousel_subtext">
+                    <div class="name">
+                        <p>해운대</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="Img/carousel4_aquarium.png" class="d-block w-100" >
+                <div class="carousel-caption d-none d-md-block carousel_headtext" >
+                    <h1>부산에서 나를 치유하자</h1>
+                    <p>BUSAN 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-balloon-heart" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="m8 2.42-.717-.737c-1.13-1.161-3.243-.777-4.01.72-.35.685-.451 1.707.236 3.062C4.16 6.753 5.52 8.32 8 10.042c2.479-1.723 3.839-3.29 4.491-4.577.687-1.355.587-2.377.236-3.061-.767-1.498-2.88-1.882-4.01-.721L8 2.42Zm-.49 8.5c-10.78-7.44-3-13.155.359-10.063.045.041.089.084.132.129.043-.045.087-.088.132-.129 3.36-3.092 11.137 2.624.357 10.063l.235.468a.25.25 0 1 1-.448.224l-.008-.017c.008.11.02.202.037.29.054.27.161.488.419 1.003.288.578.235 1.15.076 1.629-.157.469-.422.867-.588 1.115l-.004.007a.25.25 0 1 1-.416-.278c.168-.252.4-.6.533-1.003.133-.396.163-.824-.049-1.246l-.013-.028c-.24-.48-.38-.758-.448-1.102a3.177 3.177 0 0 1-.052-.45l-.04.08a.25.25 0 1 1-.447-.224l.235-.468ZM6.013 2.06c-.649-.18-1.483.083-1.85.798-.131.258-.245.689-.08 1.335.063.244.414.198.487-.043.21-.697.627-1.447 1.359-1.692.217-.073.304-.337.084-.398Z"/>
+                        </svg>
+                    </p>
+                </div>
+                <div class="carousel-caption d-none d-md-block carousel_subtext">
+                    <div class="name">
+                        <p>SEA LIFE 부산아쿠아리움</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!-- Content Part -->
+    <div class="top5">
+        <h1>부산을 듬뿍 느낄 수 있는 장소들 TOP5</h1>
+    </div>
+    <div class="places">
+        <div class="top_1" >
+            <a href="" style="background-color:rgb(224, 240, 253) ;" >
+                <div class="img_div">
+                    <img src="Img/TOP1_yongdoosan.jpeg" class="top_1_img">
+                </div>
+                <div class="top_1_explain" >
+                    <div>
+                        <span style=" font-size:30px;">
+                            <span style="font-size: 100px; color: rgba(0, 0, 0, 0.1);">01</span>
+                            용두산 공원
+                        </span>
+                    </div>
+                    <div style="margin-top: 30px; font-size: 20px;"># 평온한 느낌의 언덕 숲 사이 산책 코스</div>
+                    <div style="margin-top: 30px; font-size: 20px; color:rgb(224, 240, 253);">###</div>
+                    <div style="margin-top: 30px; font-size: 20px; color:rgb(224, 240, 253);">###</div>
+                </div>
+            </a>
+        </div>    
+        <div class="top_2">
+            <a href="" style="background-color: beige ;">
+                <div class="top_2_explain">
+                    <div class="img_div">
+                        <span style=" font-size:30px;">
+                            <span style="font-size: 100px; color: rgba(0, 0, 0, 0.1);">02</span>
+                            보수동 책방 골목
+                        </span>
+                    </div>
+                    <div style="margin-top: 30px; font-size: 20px;"># 손 때 묻은 책들을 보며 향수에 젖다</div>
+                    <div style="margin-top: 30px; font-size: 20px; display: none; color:beige; display:block">###</div>
+                    <div style="margin-top: 30px; font-size: 20px; color:beige;">###</div>
+                </div>
+                <div class="img_div">
+                    <img src="Img/Top2_Bosu.jpg" class="top_1_img">
+                </div>
+            </a>
+        </div>
+        <div class="top_345">
+            <a href="">
+                <div class="top_3" style="background-color: rgb(255, 237, 243);">
+                    <div class="img_div">
+                        <img src="Img/Top3_Jagalchi.jpg">
+                    </div>
+                    <div class="top_345_explain">
+                        <div>
+                            <span style=" font-size:30px;">
+                                <span style="font-size: 100px; color: rgba(0, 0, 0, 0.1);">03</span>
+                                자갈치시장
+                            </span>
+                        </div>
+                        <div style="margin-top: 30px; font-size: 20px;"># 세계제일의 어패류 종합시장</div>
+                    </div>
+                </div>
+            </a>
+            <a href="">
+                <div class="top_4" style="background-color: rgb(255, 237, 243);">
+                    <div class="img_div">
+                        <img src="Img/Top4_gookjae.jpg">
+                    </div>
+                    <div class="top_345_explain">
+                        <div>
+                            <span style=" font-size:30px;">
+                                <span style="font-size: 100px; color: rgba(0, 0, 0, 0.1);">04</span>
+                                국제시장
+                            </span>
+                        </div>
+                        <div style="margin-top: 30px; font-size: 20px;"># 숱한 사연을 담은 부산 대표 전통시장</div>
+                    </div>
+                </div>
+            </a>
+            <a href="">
+                <div class="top_5" style="background-color: rgb(255, 237, 243);">
+                    <div class="img_div">
+                        <img src="Img/Top5_ggangtong.jpg">
+                    </div>
+                    <div class="top_345_explain">
+                        <div>
+                            <span style=" font-size:30px;">
+                                <span style="font-size: 100px; color: rgba(0, 0, 0, 0.1);">05</span>
+                                깡통시장
+                            </span>
+                        </div>
+                        <div style="margin-top: 30px; font-size: 20px;"># 대한민국 최초 1호의 야시장이 열린 곳</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer Part-->
+    <div id='wrap'>
+        <footer>
+            <p>
+                <div>
+                    <div style="width:45%; color: white; display: inline-block; text-align: left;">
+                        <span class="white">(주) Busan For U</span><br />
+                    </div>
+                    <div style="width:45%; color: white; display: inline-block; text-align: right;">
+                        <button class="but_logo">
+                            <img src="Img/facebook-logo-icon.png">
+                        </button>
+                        <button class="but_logo">
+                            <img src="Img/instagram-logo-icon.png">
+                        </button>
+                        <button class="but_logo">
+                            <img src="Img/youtube-logo-icon.png">
+                        </button>
+                        <button class="but_logo">
+                            <img src="Img/blog-black-icon.png">
+                        </button>
+                        <span style="font-size: 17px; margin-left: 20px;">부산관광문의 _</span>
+                        <span style="font-size: 40px;color:cornflowerblue;font-weight: 1000;">4258</span>
+                    </div>
+                </div>
+                <div>
+
+                </div>
+                <div class="footer_end">
+                    <span class="gray">Fax : 02-1234-5678</span>
+                    <span style="margin-right:10px;margin-left:10px; font-weight: bold;">|</span>
+                    <span class="gray">E-mail : Acorn_team4@naver.com</span><br/>
+
+                    <span class="gray">고객센터 전화문의 080-987-6543</span>
+                    <span style="margin-right:10px;margin-left:10px; font-weight: bold;">|</span>
+                    <span class="gray">Copyright 2022. Team4. All Rights Reserved.</span>
+                </div>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
