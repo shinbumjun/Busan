@@ -3,6 +3,11 @@ import VueRouter from 'vue-router';
 import example1 from '../components/ex-ex1.vue';
 import example2 from '../components/ex-ex2.vue';
 import example3 from '../components/ex-ex3.vue';
+import BusanCommunity from '../components/BusanCommunity.vue';
+import BusanCommunityinsertform from '../components/BusanCommunityinsertform.vue';
+import BusanCommunitydetail from '../components/BusanCommunitydetail.vue';
+import BusanFavorites from '../components/BusanFavorites.vue';
+import BusanTouristspotdetails from '../components/BusanTouristspotdetails.vue';
 
 Vue.use(VueRouter);
 
@@ -20,6 +25,26 @@ export default new VueRouter({
         {
             path: '/ex3',
             component: example3
+        },
+        {
+            path: '/community',
+            component: BusanCommunity
+        },
+        {
+            path: '/communityinsertform',
+            component: BusanCommunityinsertform
+        },
+        {
+            path: '/communitydetail',
+            component: BusanCommunitydetail
+        },
+        {
+            path: '/favorites',
+            component: BusanFavorites
+        },
+        {
+            path: '/touristspotdetails',
+            component: BusanTouristspotdetails
         },
     ]   
 })
