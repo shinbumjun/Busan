@@ -3,11 +3,11 @@
         <div class="container">
             <br/>	
             <h2 class="text-center">커뮤니티</h2>
-            <div style="float:right">
+            <div style="float:right" class="my-3">
                 <router-link to="/communityinsertform"><input class="btn btn-outline-secondary btn-sm" type="button" value="커뮤니티 작성"></router-link>
             </div>
             <br/>
-            <table class="table table-hover">
+            <table class="table table-light table-hover">
                 <thead>
                     <tr>
                         <th>번호</th>
