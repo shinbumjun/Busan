@@ -16,14 +16,13 @@ def Sign_upPage_view(request):
 def Recommand_selectPage_view(request):
     return render(request, "Recommand_selectPage.html") # 설문조사 페이지
 
-def bcommunity_view(request):
-    return render(request, "bcommunity.html") # 커뮤니티 페이지
-
-def bcommunitydetail_view(request):
-    return render(request, "bcommunitydetail.html") # 커뮤니티 상세 페이지
-
-def bcommunityinsertform_view(request):
-    return render(request, "bcommunityinsertform.html") # 커뮤니티 작성 페이지
+# myboard 앱에서 처리~
+# def bcommunity_view(request):
+#     return render(request, "bcommunity.html") # 커뮤니티 페이지
+# def bcommunitydetail_view(request):
+#     return render(request, "bcommunitydetail.html") # 커뮤니티 상세 페이지
+# def bcommunityinsertform_view(request):
+#     return render(request, "bcommunityinsertform.html") # 커뮤니티 작성 페이지
 
 def bcourse_view(request):
     return render(request, "bcourse.html") # 그냥 여행 페이지
