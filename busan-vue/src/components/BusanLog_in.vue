@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- Headbar Part -->
         <div id="carouselExampleCaptions" class="carousel headbar" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active head">
@@ -14,36 +15,51 @@
             </div>
         </div>
         
-        
+        <!-- Content Part -->
         <div class="container" style="height:900px;">
-            
             <header class="welcome-header">
                 <h1 class="welcome-header__title">Busan For U 에 오신것을 환영합니다!</h1>
                 <p class="welcome-header__text">사용자 계정이 있다면,</p>
                 <p class="welcome-header__text2">ID와 Password를 입력하여 로그인 하세요.</p>
             </header>
-        
-            <form action="${pageContext.request.contextPath}/users/login.do" method="post" id="Login-form">
-                    <c:choose>
-                        <c:when test="${ empty param.url }">
-                            <input type="hidden" name="url" value="${pageContext.request.contextPath}/"/>
-                        </c:when>
-                        <c:otherwise>
-                            <input type="hidden" name="url" value="${param.url }"/>
-                        </c:otherwise>
-                    </c:choose>
-                <input type="text" id="users_id" name="users_id"  placeholder="Email or ID" />
-                <input type="password" id="users_pwd" name="users_pwd"  placeholder="Password"/>
-                <input type="submit" value="Log in" style="margin-top:40px;"/>
-                <a href="" class="find">회원가입이 필요하십니까?</a>
-            </form>          
+            <form v-on:submit="submitForm" id="Login-form">
+                <input v-model="username" type="text" id="users_id" name="users_id"  placeholder="ID" />
+                <input v-model="password" type="password" id="users_pwd" name="users_pwd"  placeholder="Password"/>
+                <input id = "button" type="submit" value="Log in" style="margin-top:40px;"/>
+            </form>
+            <router-link to="/signup">
+                    <a href="" class="find">회원가입이 필요하십니까?</a>
+            </router-link>          
         </div>
     </div>    
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-
+    data:function(){
+        return{
+            username:"",
+            password:""
+        }
+    },
+    methods: {       // 메서드 구현
+        submitForm: function(){
+            console.log(this.username, this.password);
+            var url = 'https://jsonplaceholder.typicode.com/posts';   //이 url로 데이터를 보내고 받을 수 있음
+            var data = {
+                username: this.username,
+                password: this.password
+            }
+            axios.post(url, data)
+                .then(function(response){
+                    console.log(response);
+                })
+                .catch(function(error){
+                    console.log(error);
+                })
+        }
+    }
 }
 </script>
 
@@ -100,13 +116,7 @@ export default {
             flex-direction: column;
             margin: 0px 100px;
         }
-        #Login-form input{
-            border: none;
-            padding:17px 0px;
-            font-size: 17px;
-            margin-top: 15px;
-        }
-        #Login-form input:nth-child(4){
+        #Login-form #button{
             margin-top: 17px;
             margin-bottom: 30px;
             padding: 13px;
@@ -118,24 +128,19 @@ export default {
             background-color: #007cc4;
             cursor: pointer;
         }
-        #Login-form input:nth-child(4):hover{
+
+        #Login-form input{
+            border: none;
+            padding:17px 0px;
+            font-size: 17px;
+            margin-top: 15px;
+        }
+        
+        #button:hover{
             background-color: rgb(111, 0, 255);
             transition: 0.5s ease-in-out;
         }
-        #Login-form button{
-            height:45px;
-            margin-top: 12px;
-            padding: 13px;
-            font-size: 15px;
-            font-weight: bold;
-            border: none;
-            border-bottom: rgba(0,0,0,0.3);
-            border-radius: 8px;
-            opacity: 0.7;
-            color:rgba(0,0,0,0.9);
-            background-color: yellow;
-            cursor: pointer;
-        }
+
         .but{
             color:black;
             text-decoration:none;
