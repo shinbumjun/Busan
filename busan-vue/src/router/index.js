@@ -31,6 +31,10 @@ export default new VueRouter({
             component: BusanLog_in
         },
         {
+            path: '/signup',
+            component: BusanSign_up
+        },
+        {
             path: '/mypage',
             component: BusanMypage
         },
@@ -69,10 +73,6 @@ export default new VueRouter({
         {
             path: '/course',
             component: BusanCourse
-        },
-        {
-            path: '/signup',
-            component: BusanSign_up
         },
     ]   
 })
