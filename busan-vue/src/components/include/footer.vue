@@ -7,16 +7,24 @@
                 </div>
                 <div style="width:45%; color: white; display: inline-block; text-align: right;">
                     <button class="but_logo">
-                        <img src="../../../public/facebook-logo-icon.png">
+                        <a href="https://www.facebook.com/">
+                            <img src="../../../public/facebook-logo-icon.png">
+                        </a>
                     </button>
                     <button class="but_logo">
-                        <img src="../../../public/instagram-logo-icon.png">
+                        <a href="https://www.instagram.com/">
+                            <img src="../../../public/instagram-logo-icon.png">
+                        </a>
                     </button>
                     <button class="but_logo">
-                        <img src="../../../public/youtube-logo-icon.png">
+                        <a href="https://www.youtube.com/">
+                            <img src="../../../public/youtube-logo-icon.png">
+                        </a>
                     </button>
                     <button class="but_logo">
-                        <img src="../../../public//blog-black-icon.png">
+                        <a href="https://korea.googleblog.com/">
+                            <img src="../../../public//blog-black-icon.png">
+                        </a>
                     </button>
                     <span style="font-size: 17px; margin-left: 20px;">부산관광문의 _</span>
                     <span style="font-size: 40px;color:cornflowerblue;font-weight: 1000;">4258</span>
