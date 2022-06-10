@@ -22,21 +22,44 @@
                 <p class="welcome-header__text">사용자 계정이 있다면,</p>
                 <p class="welcome-header__text2">ID와 Password를 입력하여 로그인 하세요.</p>
             </header>
-            <form action="${pageContext.request.contextPath}/users/login.do" method="post" id="Login-form">
-                <input type="text" id="users_id" name="users_id"  placeholder="Email or ID" />
-                <input type="password" id="users_pwd" name="users_pwd"  placeholder="Password"/>
+            <form v-on:submit="submitForm" id="Login-form">
+                <input v-model="username" type="text" id="users_id" name="users_id"  placeholder="ID" />
+                <input v-model="password" type="password" id="users_pwd" name="users_pwd"  placeholder="Password"/>
                 <input id = "button" type="submit" value="Log in" style="margin-top:40px;"/>
-                <router-link to="/signup">
+            </form>
+            <router-link to="/signup">
                     <a href="" class="find">회원가입이 필요하십니까?</a>
-                </router-link>
-            </form>          
+            </router-link>          
         </div>
     </div>    
 </template>
 
 <script>
+import axios from 'axios';
 export default {
-
+    data:function(){
+        return{
+            username:"",
+            password:""
+        }
+    },
+    methods: {       // 메서드 구현
+        submitForm: function(){
+            console.log(this.username, this.password);
+            var url = 'https://jsonplaceholder.typicode.com/posts';   //이 url로 데이터를 보내고 받을 수 있음
+            var data = {
+                username: this.username,
+                password: this.password
+            }
+            axios.post(url, data)
+                .then(function(response){
+                    console.log(response);
+                })
+                .catch(function(error){
+                    console.log(error);
+                })
+        }
+    }
 }
 </script>
 
