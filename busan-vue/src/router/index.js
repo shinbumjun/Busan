@@ -23,16 +23,24 @@ export default new VueRouter({
     mode: 'history',
     routes: [
         {
-            path: '/ex1',
-            component: example1
+            path: '/',
+            component: BusanHome
         },
         {
-            path: '/ex2',
-            component: example2
+            path: '/login',
+            component: BusanLog_in
         },
         {
-            path: '/ex3',
-            component: example3
+            path: '/mypage',
+            component: BusanMypage
+        },
+        {
+            path: '/recommand_result',
+            component: BusanRecommand_result
+        },
+        {
+            path: '/recommand_select',
+            component: BusanRecommand_select
         },
         {
             path: '/community',
@@ -63,48 +71,8 @@ export default new VueRouter({
             component: BusanCourse
         },
         {
-            path: '/login',
-            component: BusanLog_in
-        },
-        {
-            path: '/mypage',
-            component: BusanMypage
-        },
-        {
-            path: '/recommand_result',
-            component: BusanRecommand_result
-        },
-        {
-            path: '/recommand_select',
-            component: BusanRecommand_select
-        },
-        {
             path: '/signup',
             component: BusanSign_up
         },
-        {
-            path: '/',
-            component: BusanHome
-        },
-        {
-            path: '/login',
-            component: BusanLog_in
-        },
-        {
-            path: '/mypage',
-            component: BusanMypage
-        },
-        {
-            path: '/recommand_result',
-            component: BusanRecommand_result
-        },
-        {
-            path: '/recommand_select',
-            component: BusanRecommand_select
-        },
-        {
-            path: '/signup',
-            component: BusanSign_up
-        }
     ]   
 })
