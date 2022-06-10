@@ -15,7 +15,6 @@
             <button class="btn btn-outline-secondary btn-sm" type="submit">저장</button>
         </form>
     </div>
-
   </main>
 </template>
 
@@ -25,4 +24,7 @@ export default {
 </script>
 
 <style>
+  textarea {
+    height: 20em;
+  }
 </style>
