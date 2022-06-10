@@ -26,9 +26,9 @@
                     </div>
                 </div>
                 <div style="text-align: center">
-                    <input type="checkbox" id="man_check">
+                    <input type="checkbox" v-model="checkdata" value="man" id="man_check">
                     <label for="man_check"></label>
-                    <input type="checkbox" id="woman_check">
+                    <input type="checkbox" v-model="checkdata" value="woman" id="woman_check">
                     <label for="woman_check"></label>
                 </div>
                 <div class="label1_explain" style=" text-align: center;">
@@ -47,15 +47,15 @@
                     </div>
                 </div>
                 <div style="text-align: center">
-                    <input type="checkbox" id="check_10th">
+                    <input type="checkbox" v-model="checkdata" value="10" id="check_10th">
                     <label for="check_10th"></label>
-                    <input type="checkbox" id="check_20th">
+                    <input type="checkbox" v-model="checkdata" value="20" id="check_20th">
                     <label for="check_20th"></label>
-                    <input type="checkbox" id="check_30th">
+                    <input type="checkbox" v-model="checkdata" value="30" id="check_30th">
                     <label for="check_30th"></label>
-                    <input type="checkbox" id="check_40th">
+                    <input type="checkbox" v-model="checkdata" value="40" id="check_40th">
                     <label for="check_40th"></label>
-                    <input type="checkbox" id="check_50th">
+                    <input type="checkbox" v-model="checkdata" value="50" id="check_50th">
                     <label for="check_50th"></label>
                 </div>
                 <div class="label2_explain" style=" text-align: center;">
@@ -83,13 +83,13 @@
                     </div>
                 </div>
                 <div style="text-align: center">
-                    <input type="checkbox" id="check_solo">
+                    <input type="checkbox" v-model="checkdata" value="solo" id="check_solo">
                     <label for="check_solo"></label>
-                    <input type="checkbox" id="check_couple">
+                    <input type="checkbox" v-model="checkdata" value="couple" id="check_couple">
                     <label for="check_couple"></label>
-                    <input type="checkbox" id="check_friends">
+                    <input type="checkbox" v-model="checkdata" value="friends" id="check_friends">
                     <label for="check_friends"></label>
-                    <input type="checkbox" id="check_family">
+                    <input type="checkbox" v-model="checkdata" value="family" id="check_family">
                     <label for="check_family"></label>
                 </div>
                 <div class="label3_explain" style=" text-align: center;">
@@ -114,39 +114,39 @@
                 <div>
                     <div class="theme_images" style="text-align: center;">
                         <div>
-                            <input type="checkbox" id="check_nature">
+                            <input type="checkbox" v-model="checkdata" value="nature" id="check_nature">
                             <label for="check_nature"></label>
                         </div>
                         <div>
-                            <input type="checkbox" id="check_park">
+                            <input type="checkbox" v-model="checkdata" value="park" id="check_park">
                             <label for="check_park"></label>
                         </div>
                         <div>
-                            <input type="checkbox" id="check_culture">
+                            <input type="checkbox" v-model="checkdata" value="culture" id="check_culture">
                             <label for="check_culture"></label>
                         </div>
                         <div>
-                            <input type="checkbox" id="check_shopping">
+                            <input type="checkbox" v-model="checkdata" value="shopping" id="check_shopping">
                             <label for="check_shopping"></label>
                         </div>
                         <div>
-                            <input type="checkbox" id="check_interesting">
+                            <input type="checkbox" v-model="checkdata" value="interesting" id="check_interesting">
                             <label for="check_interesting"></label>
                         </div>
                         <div>
-                            <input type="checkbox" id="check_history">
+                            <input type="checkbox" v-model="checkdata" value="history" id="check_history">
                             <label for="check_history"></label>
                         </div>
                         <div>
-                            <input type="checkbox" id="check_walking">
+                            <input type="checkbox" v-model="checkdata" value="walking" id="check_walking">
                             <label for="check_walking"></label>
                         </div>
                         <div>
-                            <input type="checkbox" id="check_experience">
+                            <input type="checkbox" v-model="checkdata" value="experience" id="check_experience">
                             <label for="check_experience"></label>
                         </div>
                         <div>
-                            <input type="checkbox" id="check_festival">
+                            <input type="checkbox" v-model="checkdata" value="festival" id="check_festival">
                             <label for="check_festival"></label>
                         </div>
                     </div>
@@ -180,7 +180,9 @@
                         </div>
                     </div>
                     <div style="text-align: center; margin-top: 70px;">
-                        <input class="submit" type="submit" value="추천받으러 Go!" style="margin-top:40px;"/>
+                        <router-link to="/recommand_result">
+                            <input class="submit" type="submit" value="추천받으러 Go!" @click="checkOptions()" style="margin-top:40px;"/>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -189,8 +191,17 @@
 </template>
 
 <script>
-export default {
-
+export default{
+        data() {
+            return {
+                checkdata : []
+            }
+        },
+        methods: {
+            checkOptions : function(){
+                console.log(this.checkdata);
+            }
+        }
 }
 </script>
 
