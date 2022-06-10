@@ -8,6 +8,8 @@ import BusanCommunityinsertform from '../components/BusanCommunityinsertform.vue
 import BusanCommunitydetail from '../components/BusanCommunitydetail.vue';
 import BusanFavorites from '../components/BusanFavorites.vue';
 import BusanTouristspotdetails from '../components/BusanTouristspotdetails.vue';
+import BusanTouristspot from '../components/BusanTouristspot.vue';
+import BusanCourse from '../components/BusanCourse.vue';
 
 Vue.use(VueRouter);
 
@@ -45,6 +47,14 @@ export default new VueRouter({
         {
             path: '/touristspotdetails',
             component: BusanTouristspotdetails
+        },
+        {
+            path: '/touristspot',
+            component: BusanTouristspot
+        },
+        {
+            path: '/course',
+            component: BusanCourse
         },
     ]   
 })
