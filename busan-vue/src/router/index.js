@@ -8,7 +8,12 @@ import BusanCommunityinsertform from '../components/BusanCommunityinsertform.vue
 import BusanCommunitydetail from '../components/BusanCommunitydetail.vue';
 import BusanFavorites from '../components/BusanFavorites.vue';
 import BusanTouristspotdetails from '../components/BusanTouristspotdetails.vue';
-
+import BusanHome from '../components/BusanHome.vue';
+import BusanLog_in from '../components/BusanLog_in.vue';
+import BusanMypage from '../components/BusanMypage.vue';
+import BusanRecommand_result from '../components/BusanRecommand_result.vue';
+import BusanRecommand_select from '../components/BusanRecommand_select.vue';
+import BusanSign_up from '../components/BusanSign_up.vue';
 Vue.use(VueRouter);
 
 export default new VueRouter({
@@ -45,6 +50,30 @@ export default new VueRouter({
         {
             path: '/touristspotdetails',
             component: BusanTouristspotdetails
+        },
+        {
+            path: '/',
+            component: BusanHome
+        },
+        {
+            path: '/login',
+            component: BusanLog_in
+        },
+        {
+            path: '/mypage',
+            component: BusanMypage
+        },
+        {
+            path: '/recommand_result',
+            component: BusanRecommand_result
+        },
+        {
+            path: '/recommand_select',
+            component: BusanRecommand_select
+        },
+        {
+            path: '/signup',
+            component: BusanSign_up
         },
     ]   
 })
