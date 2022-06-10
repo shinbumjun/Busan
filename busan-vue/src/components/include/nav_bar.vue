@@ -97,6 +97,7 @@ export default{
             margin-right: 80px;
         }
         .navEnd button{
+            font-weight: bold;
             font-family: 'IBM Plex Sans KR', sans-serif;
         }
         .navEnd span{
