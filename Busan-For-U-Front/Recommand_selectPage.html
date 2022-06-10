@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" sizes="48x48" href="Img/B4U_favicon.png"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Black+Han+Sans&family=Cute+Font&family=Do+Hyeon&family=Dokdo&family=East+Sea+Dokdo&family=Gaegu&family=Gamja+Flower&family=Gothic+A1&family=Gugi&family=Hi+Melody&family=Jua&family=Kirang+Haerang&family=Nanum+Brush+Script&family=Nanum+Gothic&family=Nanum+Gothic+Coding&family=Nanum+Myeongjo&family=Nanum+Pen+Script&family=Noto+Sans+KR&family=Noto+Serif+KR&family=Poor+Story&family=Single+Day&family=Song+Myung&family=Stylish&family=Sunflower:wght@300&family=Yeon+Sung&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B4U Recommand SelectPage</title>
+    <style>
+        /* Navbar CSS */
+        .navbar{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+        .BFU{
+            font-family: 'Lobster', cursive;
+            border: 0;
+            outline: 0;
+            background-color: white;
+            width:210px;
+            margin-left: 80px;
+        }
+        .BFU p{
+            display:inline-block;
+        }
+        .BFU img{
+            width: 200px;
+            height: 80px;
+            margin-top: 30px;
+        }
+        .navMid{
+            font-family: 'IBM Plex Sans KR', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .navMid_ul {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .navMid_ul li{
+            display: inline-block;
+            width: 90px;
+        }
+        .Btn{
+            border: 0;
+            outline: 0;
+            background-color: white;   
+            margin-right: 10px; 
+            margin-left: 10px;
+        }
+        .navEnd{
+            margin-right: 80px;
+        }
+        .navEnd span{
+            color:rgb(83, 46, 0)
+        }
+        /* Head IMG CSS*/
+        .carousel-item img{
+            height: 450px;
+            filter: brightness(90%);
+        }
+        .carousel{
+            margin: 60px 0px 0px 0px;
+            z-index: 20;
+        }
+        .carousel_headtext{
+            text-align: left;
+            margin-bottom: 300px;
+        }
+        .carousel_headtext h1{
+            font-family: 'Gugi', cursive;
+            font-size: 60px;
+        }
+        .carousel_headtext p{
+            font-family: 'Pacifico', cursive;
+            font-size:25px;
+        }
+        .carousel_subtext{
+            margin-bottom:20px;
+            text-align: right;
+        }
+        .name{
+            vertical-align: middle;
+            display:inline-block;  
+            width:250px; 
+            border-color: rgba(0, 0, 0, 0.5);
+            text-align:left; 
+            height: 350px;
+            font-family: 'Gugi', cursive;
+            font-size: 50px;
+            color:white;
+            margin-left: 20%;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        .name p:first-child{
+            margin-bottom: 0px;
+        }
+
+        /* Content CSS*/
+        .box{
+            height: 2650px;
+            overflow: hidden;
+        }
+        .content-top{
+            display: block;
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+        .content-top h1{
+            text-align: center;
+            font-size: 40px;
+            font-family: 'Do Hyeon', sans-serif;
+        }
+        .gender{
+            position: relative;
+            background-color: #F3FACF;
+            height: 440px;
+        }
+        .label1{
+            vertical-align: middle;
+            display:inline-block; 
+            background-color: rgba(255, 171, 45, 0.753); 
+            width:300px; 
+            color: white;
+            text-align:center; 
+            height: 60px;
+            line-height: 60px;
+            font-family: 'Gugi', cursive;
+            font-size: 25px;
+            margin-bottom: 0px;
+            position: absolute;
+            left: 40px;
+            top: 0;
+        }
+        .label1_explain, .label2_explain, .label3_explain, .label4_explain{
+            font-family: 'Gugi', cursive;
+        }
+        .label1_explain div{
+            display: inline-block;
+            width:100px;
+            height:40px;
+            line-height: 40px;
+            background-color: rgb(15, 1, 77);
+            color: white;
+            margin-right: 240px;
+            margin-top:18px;
+            border-radius: 50%;
+            font-size: 20px;
+        }
+        .label1_explain div:last-child{
+            display: inline-block;
+            width:100px;
+            height:40px;
+            line-height: 40px;
+            background-color: rgb(15, 1, 77);
+            color: white;
+            margin-right: 0px;
+        }
+        .label1_explain p{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .label2_explain div{
+            display: inline-block;
+            width:100px;
+            height:40px;
+            line-height: 40px;
+            background-color: rgb(15, 1, 77);
+            color: white;
+            margin-right: 200px;
+            margin-top:18px;
+            border-radius: 50%;
+            font-size: 20px;
+        }
+        .label2_explain div:last-child{
+            display: inline-block;
+            width:100px;
+            height:40px;
+            line-height: 40px;
+            background-color: rgb(15, 1, 77);
+            color: white;
+            margin-right: 0px;
+        }
+        .label2_explain p{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .age{
+            position: relative;
+            background-color: #E1FACD;
+            height: 440px;
+        }
+        .label2{
+            vertical-align: middle;
+            display:inline-block; 
+            background-color: rgba(255, 171, 45, 0.753); 
+            width:300px; 
+            color: white;
+            text-align:center; 
+            height: 60px;
+            line-height: 60px;
+            font-family: 'Gugi', cursive;
+            font-size: 25px;
+            margin-bottom: 0px;
+            position: absolute;
+            left: 40px;
+            top: 0;
+        }
+        .with{
+            position: relative;
+            background-color: #D2FAD6;
+            height: 440px;
+        }
+        .label3{
+            vertical-align: middle;
+            display:inline-block; 
+            background-color: rgba(255, 171, 45, 0.753); 
+            width:270px; 
+            color: white;
+            text-align:center; 
+            height: 60px;
+            line-height: 60px;
+            font-family: 'Gugi', cursive;
+            font-size: 25px;
+            margin-bottom: 0px;
+            position: absolute;
+            left: 40px;
+            top: 0;
+        }
+        .label3_explain div{
+            display: inline-block;
+            width:100px;
+            height:40px;
+            line-height: 40px;
+            background-color: rgb(15, 1, 77);
+            color: white;
+            margin-right: 260px;
+            margin-top:18px;
+            border-radius: 50%;
+            font-size: 20px;
+        }
+        .label3_explain div:last-child{
+            display: inline-block;
+            width:100px;
+            height:40px;
+            line-height: 40px;
+            background-color: rgb(15, 1, 77);
+            color: white;
+            margin-right: 0px;
+        }
+        .label3_explain p{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        input[type="checkbox"] {
+            display: none;
+        }
+        input[type="checkbox"]+label{
+            display: inline-block;
+            border-radius: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        input[type="checkbox"]+label:hover{
+            transform:scale(1.2);
+        }
+        .gender input[type="checkbox"]+label{
+            margin-top: 50px;
+        }
+        .age input[type="checkbox"]+label{
+            margin-top: 60px;
+        }
+        .with input[type="checkbox"]+label{
+            margin-top: 55px;
+        }
+        .theme_images input[type="checkbox"]+label{
+            border-radius: 0%;
+        }
+        #man_check+label {
+            margin-right: 100px;
+            width: 240px;
+            height: 300px;
+            background: url('Img/Select_Man.jpg') no-repeat 0 0px / contain;
+        }
+        #man_check:checked+label {
+            background: url('Img/Selected_Man.jpg') no-repeat 0 1px / contain;
+        }
+        #woman_check+label {
+            width: 240px;
+            height: 300px;
+            background: url('Img/Select_Woman.jpg') no-repeat 0 0px / contain;
+        }
+        #woman_check:checked+label {
+            background: url('Img/Selected_Woman.jpg') no-repeat 0 1px / contain;
+        }
+        #check_10th+label {
+            margin-right: 20px;
+            width: 280px;
+            height: 280px;
+            background: url('Img/Select_10th.jpg') no-repeat 0 0px / contain;
+        }
+        #check_10th:checked+label {
+            background: url('Img/Selected_10th.jpg') no-repeat 0 1px / contain;
+        }        
+        #check_20th+label {
+            margin-right: 20px;
+            width: 280px;
+            height: 280px;
+            background: url('Img/Select_20th.jpg') no-repeat 0 0px / contain;
+        }
+        #check_20th:checked+label {
+            background: url('Img/Selected_20th.jpg') no-repeat 0 1px / contain;
+        }        
+        #check_30th+label {
+            margin-right: 20px;
+            width: 280px;
+            height: 280px;
+            background: url('Img/Select_30th.jpg') no-repeat 0 0px / contain;
+        }
+        #check_30th:checked+label {
+            background: url('Img/Selected_30th.jpg') no-repeat 0 1px / contain;
+        }        
+        #check_40th+label {
+            margin-right: 20px;
+            width: 280px;
+            height: 280px;
+            background: url('Img/Select_40th.jpg') no-repeat 0 0px / contain;
+        }
+        #check_40th:checked+label {
+            background: url('Img/Selected_40th.jpg') no-repeat 0 1px / contain;
+        }        
+        #check_50th+label {
+            width: 280px;
+            height: 280px;
+            background: url('Img/Select_50th.png') no-repeat 0 0px / contain;
+        }
+        #check_50th:checked+label {
+            background: url('Img/Selected_50th.png.jpg') no-repeat 0 1px / contain;
+        }
+        #check_solo+label {
+            width: 280px;
+            height: 280px;
+            margin-right: 80px;
+            background: url('Img/Select_solo.png') no-repeat 0 0px / contain;
+        }
+        #check_solo:checked+label {
+            background: url('Img/Selected_solo.jpg') no-repeat 0 1px / contain;
+        }
+        #check_couple+label {
+            width: 280px;
+            height: 280px;
+            margin-right: 80px;
+            background: url('Img/Select_couple.jpg') no-repeat 0 0px / contain;
+        }
+        #check_couple:checked+label {
+            background: url('Img/Selected_couple.jpg') no-repeat 0 1px / contain;
+        }
+        #check_friends+label {
+            width: 280px;
+            height: 280px;
+            margin-right: 80px;
+            background: url('Img/Select_friends.jpg') no-repeat 0 0px / contain;
+        }
+        #check_friends:checked+label {
+            background: url('Img/Selected_friends.jpg') no-repeat 0 1px / contain;
+        }
+        #check_family+label {
+            width: 280px;
+            height: 280px;
+            background: url('Img/Select_family.jpg') no-repeat 0 0px / contain;
+        }
+        #check_family:checked+label {
+            background: url('Img/Selected_family.jpg') no-repeat 0 1px / contain;
+        }
+        .theme_message{
+            text-align: center; 
+            height: 100px;
+        }
+        .theme_message h1{
+            line-height: 100px;
+            vertical-align: middle;
+            font-family: 'Do Hyeon', sans-serif;
+            background-color: #CFFAE1;
+        }
+        .theme_images{
+            background-color: #D3F1F1;
+        }
+        .theme_images div{
+            width: 200px;
+            height: 400px;
+            display: inline-block;
+            overflow: hidden;
+        }
+        .theme_explain{
+            background-color: #D7EBF0;
+        }
+        .theme_explain div{
+            width: 200px;
+            height: 100px;
+            display: inline-block;
+        }
+        .theme_explain h1{
+            line-height: 100px;
+            vertical-align: middle;
+            font-size: 30px;
+            font-family: 'Gugi', cursive;
+            color: #161616;
+            font-weight: bold;
+        }
+        #check_nature+label {
+            width: 200px;
+            height: 500px;
+            background: url('Img/theme/Select_nature.jpg') no-repeat 0 0px / contain;
+            overflow: hidden;
+        }
+        #check_nature:checked+label {
+            background: url('Img/theme/Selected_nature.jpg') no-repeat 0 1px / contain;
+        }
+        #check_park+label {
+            width: 200px;
+            height: 500px;
+            background: url('Img/theme/Select_park.jpg') no-repeat 0 0px / contain;
+        }
+        #check_park:checked+label {
+            background: url('Img/theme/Selected_park.jpg') no-repeat 0 1px / contain;
+        }
+        #check_culture+label {
+            width: 200px;
+            height: 500px;
+            background: url('Img/theme/Select_culture.jpg') no-repeat 0 0px / contain;
+        }
+        #check_culture:checked+label {
+            background: url('Img/theme/Selected_culture.jpg') no-repeat 0 1px / contain;
+        }
+        #check_shopping+label {
+            width: 200px;
+            height: 500px;
+            background: url('Img/theme/Select_shopping.jpg') no-repeat 0 0px / contain;
+        }
+        #check_shopping:checked+label {
+            background: url('Img/theme/Selected_shopping.jpg') no-repeat 0 1px / contain;
+        }
+        #check_interesting+label {
+            width: 200px;
+            height: 500px;
+            background: url('Img/theme/Select_interesting.jpg') no-repeat 0 0px / contain;
+        }
+        #check_interesting:checked+label {
+            background: url('Img/theme/Selected_interesting.jpg') no-repeat 0 1px / contain;
+        }
+        #check_history+label {
+            width: 200px;
+            height: 500px;
+            background: url('Img/theme/Select_history.jpg') no-repeat 0 0px / contain;
+        }
+        #check_history:checked+label {
+            background: url('Img/theme/Selected_history.jpg') no-repeat 0 1px / contain;
+        }
+        #check_walking+label {
+            width: 200px;
+            height: 500px;
+            background: url('Img/theme/Select_walk.jpg') no-repeat 0 0px / contain;
+        }
+        #check_walking:checked+label {
+            background: url('Img/theme/Selected_walk.jpg') no-repeat 0 1px / contain;
+        }
+        #check_experience+label {
+            width: 200px;
+            height: 500px;
+            background: url('Img/theme/Select_experience.jpg') no-repeat 0 0px / contain;
+        }
+        #check_experience:checked+label {
+            background: url('Img/theme/Selected_experience.jpg') no-repeat 0 1px / contain;
+        }
+        #check_festival+label {
+            width: 200px;
+            height: 500px;
+            background: url('Img/theme/Select_festival.jpg') no-repeat 0 0px / contain;
+        }
+        #check_festival:checked+label {
+            background: url('Img/theme/Selected_festival.jpg') no-repeat 0 1px / contain;
+        }
+        .submit{
+            padding: 13px;
+            font-size: 30px;
+            opacity: 0.9;
+            color:black;
+            border-radius: 8px;
+            background-color: #deadff;
+            cursor: pointer;
+            font-family: 'Do Hyeon', sans-serif;
+            width: 400px;
+            border:none;
+        }
+        .submit:hover{
+            background-color: #ffc6ce;
+        }
+        /* Footer CSS*/
+        #wrap {
+            min-height: 100%;
+            position: relative;
+            width: 100%;
+            font-family: 'IBM Plex Sans KR', sans-serif;
+        }
+
+        footer {
+            padding-top:20px;
+            width: 100%;
+            height: 240px; 
+            bottom: 0;
+            position: absolute;
+            background-color: #161616;
+            color:#666666;
+            font-size:18px;
+            text-align:center;
+
+        }
+        .white{
+            color:white;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .gray{
+            font-weight:bold;
+            text-align:left;
+        }
+        .but_logo img{
+            width: 30px;
+            height: 30px;
+        }
+        .footer_end{
+            margin-top: 30px;
+            text-align: left; 
+            margin-left: 70px; 
+        }
+        .footer_end span{
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Part -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:white; height: 60px;">
+        <div class="container-fluid">
+            
+            <button class="navbar-brand BFU" href="#">
+                <img src="Img/BusanForU Logo3.png">
+            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse navMid" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 navMid_ul">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">추천</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">코스</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">관광지</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">커뮤니티</a>
+                    </li>
+                </ul>
+                <div class="navEnd">
+                    <button class="Btn">로그인</button>
+                    <span>|</span>
+                    <button class="Btn" sty>회원가입</button>
+                    <span>|</span>
+                    <button class="Btn" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Head IMG Part -->
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="Img/Headbar_Busan_4.png" class="d-block w-100" >
+                <div class="d-none d-md-block carousel_subtext">
+                    <div class="name">
+                        <p>추천 선택</p>
+                        <p style="font-size: 30px;">Recommand Select</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Part-->
+    <div class="box">
+        <div class="content-top">
+            <h1>어떤 여행을 원하시나요?</h1>
+        </div>
+        <div class="gender">
+            <div>
+                <div class="label1">
+                    <p>당신의 성별은 무엇인가요?</p>
+                </div>
+            </div>
+            <div style="text-align: center">
+                <input type="checkbox" id="man_check">
+                <label for="man_check"></label>
+                <input type="checkbox" id="woman_check">
+                <label for="woman_check"></label>
+            </div>
+            <div class="label1_explain" style=" text-align: center;">
+                <div>
+                    <p>남성</p>
+                </div>
+                <div>
+                    <p>여성</p> 
+                </div>
+            </div>
+        </div>
+        <div class="age">
+            <div>
+                <div class="label2">
+                    <p>연령대가 어떻게 되시나요?</p>
+                </div>
+            </div>
+            <div style="text-align: center">
+                <input type="checkbox" id="check_10th">
+                <label for="check_10th"></label>
+                <input type="checkbox" id="check_20th">
+                <label for="check_20th"></label>
+                <input type="checkbox" id="check_30th">
+                <label for="check_30th"></label>
+                <input type="checkbox" id="check_40th">
+                <label for="check_40th"></label>
+                <input type="checkbox" id="check_50th">
+                <label for="check_50th"></label>
+            </div>
+            <div class="label2_explain" style=" text-align: center;">
+                <div>
+                    <p>10대</p>
+                </div>
+                <div>
+                    <p>20대</p> 
+                </div>
+                <div>
+                    <p>30대</p> 
+                </div>
+                <div>
+                    <p>40대</p> 
+                </div>
+                <div>
+                    <p>50대 이상</p> 
+                </div>
+            </div>
+        </div>
+        <div class="with">
+            <div>
+                <div class="label3">
+                    <p>누구와 함께 하시나요?</p>
+                </div>
+            </div>
+            <div style="text-align: center">
+                <input type="checkbox" id="check_solo">
+                <label for="check_solo"></label>
+                <input type="checkbox" id="check_couple">
+                <label for="check_couple"></label>
+                <input type="checkbox" id="check_friends">
+                <label for="check_friends"></label>
+                <input type="checkbox" id="check_family">
+                <label for="check_family"></label>
+            </div>
+            <div class="label3_explain" style=" text-align: center;">
+                <div>
+                    <p>혼자</p>
+                </div>
+                <div>
+                    <p>연인</p> 
+                </div>
+                <div>
+                    <p>친구</p> 
+                </div>
+                <div>
+                    <p>가족</p> 
+                </div>
+            </div>
+        </div>
+        <div class="theme">
+            <div class="theme_message">
+                <h1>원하시는 여행 테마를 선택하세요</h1>
+            </div>
+            <div>
+                <div class="theme_images" style="text-align: center;">
+                    <div>
+                        <input type="checkbox" id="check_nature">
+                        <label for="check_nature"></label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="check_park">
+                        <label for="check_park"></label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="check_culture">
+                        <label for="check_culture"></label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="check_shopping">
+                        <label for="check_shopping"></label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="check_interesting">
+                        <label for="check_interesting"></label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="check_history">
+                        <label for="check_history"></label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="check_walking">
+                        <label for="check_walking"></label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="check_experience">
+                        <label for="check_experience"></label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="check_festival">
+                        <label for="check_festival"></label>
+                    </div>
+                </div>
+                <div class="theme_explain" style="text-align: center;">
+                    <div>
+                        <h1># 자연</h1>
+                    </div>
+                    <div>
+                        <h1># 공원</h1>
+                    </div>
+                    <div>
+                        <h1># 문화</h1>
+                    </div>
+                    <div>
+                        <h1># 쇼핑</h1>
+                    </div>
+                    <div>
+                        <h1># 이색 여행</h1>
+                    </div>
+                    <div>
+                        <h1># 역사</h1>
+                    </div>
+                    <div>
+                        <h1># 걷기</h1>
+                    </div>
+                    <div>
+                        <h1># 체험</h1>
+                    </div>
+                    <div>
+                        <h1># 축제</h1>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 70px;">
+                    <input class="submit" type="submit" value="추천받으러 Go!" style="margin-top:40px;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Part-->
+    <div id='wrap'>
+        <footer>
+            <p>
+                <div>
+                    <div style="width:45%; color: white; display: inline-block; text-align: left;">
+                        <span class="white">(주) Busan For U</span><br />
+                    </div>
+                    <div style="width:45%; color: white; display: inline-block; text-align: right;">
+                        <button class="but_logo">
+                            <img src="Img/facebook-logo-icon.png">
+                        </button>
+                        <button class="but_logo">
+                            <img src="Img/instagram-logo-icon.png">
+                        </button>
+                        <button class="but_logo">
+                            <img src="Img/youtube-logo-icon.png">
+                        </button>
+                        <button class="but_logo">
+                            <img src="Img/blog-black-icon.png">
+                        </button>
+                        <span style="font-size: 17px; margin-left: 20px;">부산관광문의 _</span>
+                        <span style="font-size: 40px;color:cornflowerblue;font-weight: 1000;">4258</span>
+                    </div>
+                </div>
+                <div>
+
+                </div>
+                <div class="footer_end">
+                    <span class="gray">Fax : 02-1234-5678</span>
+                    <span style="margin-right:10px;margin-left:10px; font-weight: bold;">|</span>
+                    <span class="gray">E-mail : Acorn_team4@naver.com</span><br/>
+
+                    <span class="gray">고객센터 전화문의 080-987-6543</span>
+                    <span style="margin-right:10px;margin-left:10px; font-weight: bold;">|</span>
+                    <span class="gray">Copyright 2022. Team4. All Rights Reserved.</span>
+                </div>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
