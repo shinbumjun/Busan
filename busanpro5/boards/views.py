@@ -9,6 +9,7 @@ from .permissions import IsOwnerOrReadOnly
 class BoardAPI(generics.ListCreateAPIView):
     queryset = Board.objects.all()
     serializer_class = BoardSerializer
+    # 로그인관련
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticatedOrReadOnly]
 
@@ -19,5 +20,6 @@ class BoardAPI(generics.ListCreateAPIView):
 class BoardDetailAPI(generics.RetrieveUpdateDestroyAPIView):
     queryset = Board.objects.all()
     serializer_class = BoardDetailSerializer
-    authentication_classes = [TokenAuthentication]
+    # 로그인관련
+    authentication_classes = [TokenAuthentication] # 토큰 
     permission_classes = [IsOwnerOrReadOnly]
