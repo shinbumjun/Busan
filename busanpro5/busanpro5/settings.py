@@ -46,7 +46,9 @@ INSTALLED_APPS = [
     'touristspots',
     'boards',
     'users',
+    'corsheaders',  # cors 사용
     'detail'
+
 ]
 
 MIDDLEWARE = [
@@ -57,8 +59,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware', # django cors 사용
 ]
 
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8081',
+    'http://127.0.0.1:8080',
+)
 ROOT_URLCONF = 'busanpro5.urls'
 
 TEMPLATES = [

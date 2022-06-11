@@ -75,6 +75,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+import pymysql
+pymysql.install_as_MySQLdb()
 
 # DATABASES = {
 #     'default': {
@@ -96,7 +98,7 @@ DATABASES = {
         'HOST': 'database-1.c41a514inqzx.ap-northeast-2.rds.amazonaws.com', # 생성한 데이터베이스 엔드포인트
         'PORT': '3306', # 데이터베이스 포트
         'OPTIONS':{
-            'init_command' : "SET sql_mode='STRICT_TRANS_TABLES'"
+        'init_command' : "SET sql_mode='STRICT_TRANS_TABLES'"
         }
     }
 }
