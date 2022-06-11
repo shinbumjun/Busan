@@ -91,96 +91,106 @@
         
         <div class="places">
             <div class="top_1" >
-                <a href="" style="background-color:rgb(224, 240, 253) ;" >
-                    <div class="img_div">
-                        <img src="../../public/TOP1_yongdoosan.jpeg" class="top_1_img">
-                    </div>
-                    <div class="top_1_explain" >
-                        <div>
-                            <span style=" font-size:30px;">
-                                <span style="font-size: 100px; color: rgba(0, 0, 0, 0.1);">01</span>
-                                용두산 공원
-                            </span>
+                <router-link to="/touristspotdetails">
+                    <a href="" style="background-color:rgb(224, 240, 253) ;" >
+                        <div class="img_div">
+                            <img src="../../public/TOP1_yongdoosan.jpeg" class="top_1_img">
                         </div>
-                        <div style="margin-top: 30px; font-size: 20px;"># 평온한 느낌의 언덕 숲 사이 산책 코스</div>
-                        <div style="margin-top: 30px; font-size: 20px; color:rgb(224, 240, 253);">###</div>
-                        <div style="margin-top: 30px; font-size: 20px; color:rgb(224, 240, 253);">###</div>
-                    </div>
-                </a>
+                        <div class="top_1_explain" >
+                            <div>
+                                <span style=" font-size:30px;">
+                                    <span style="font-size: 100px; color: rgba(0, 0, 0, 0.1);">01</span>
+                                    용두산 공원
+                                </span>
+                            </div>
+                            <div style="margin-top: 30px; font-size: 20px;"># 평온한 느낌의 언덕 숲 사이 산책 코스</div>
+                            <div style="margin-top: 30px; font-size: 20px; color:rgb(224, 240, 253);">###</div>
+                            <div style="margin-top: 30px; font-size: 20px; color:rgb(224, 240, 253);">###</div>
+                        </div>
+                    </a>
+                </router-link>
             </div>    
             <div class="top_2">
-                <a href="" style="background-color: beige ;">
-                    <div class="top_2_explain">
-                        <div class="img_div">
-                            <span style=" font-size:30px;">
-                                <span style="font-size: 100px; color: rgba(0, 0, 0, 0.1);">02</span>
-                                보수동 책방 골목
-                            </span>
+                <router-link to="/touristspotdetails">
+                    <a href="" style="background-color: beige ;">
+                        <div class="top_2_explain">
+                            <div class="img_div">
+                                <span style=" font-size:30px;">
+                                    <span style="font-size: 100px; color: rgba(0, 0, 0, 0.1);">02</span>
+                                    보수동 책방 골목
+                                </span>
+                            </div>
+                            <div style="margin-top: 30px; font-size: 20px;"># 손 때 묻은 책들을 보며 향수에 젖다</div>
+                            <div style="margin-top: 30px; font-size: 20px; display: none; color:beige; display:block">###</div>
+                            <div style="margin-top: 30px; font-size: 20px; color:beige;">###</div>
                         </div>
-                        <div style="margin-top: 30px; font-size: 20px;"># 손 때 묻은 책들을 보며 향수에 젖다</div>
-                        <div style="margin-top: 30px; font-size: 20px; display: none; color:beige; display:block">###</div>
-                        <div style="margin-top: 30px; font-size: 20px; color:beige;">###</div>
-                    </div>
-                    <div class="img_div">
-                        <img src="../../public/Top2_Bosu.jpg" class="top_1_img">
-                    </div>
-                </a>
+                        <div class="img_div">
+                            <img src="../../public/Top2_Bosu.jpg" class="top_1_img">
+                        </div>
+                    </a>
+                </router-link>
             </div>
             <div class="top_345">
                 <a href="">
-                    <div class="top_3" style="background-color: rgb(255, 237, 243);">
-                        <div class="img_div">
-                            <img src="../../public/Top3_Jagalchi.jpg">
-                        </div>
-                        <div class="top_345_explain">
-                            <div>
-                                <span style=" font-size:30px;">
-                                    <span style="font-size: 100px; color: rgba(0, 0, 0, 0.1);">03</span>
-                                    자갈치시장
-                                </span>
+                    <router-link to="/touristspotdetails">
+                        <div class="top_3" style="background-color: rgb(255, 237, 243);">
+                            <div class="img_div">
+                                <img src="../../public/Top3_Jagalchi.jpg">
                             </div>
-                            <div style="margin-top: 30px; font-size: 20px;"># 세계제일의 어패류 종합시장</div>
+                            <div class="top_345_explain">
+                                <div>
+                                    <span style=" font-size:30px;">
+                                        <span style="font-size: 100px; color: rgba(0, 0, 0, 0.1);">03</span>
+                                        자갈치시장
+                                    </span>
+                                </div>
+                                <div style="margin-top: 30px; font-size: 20px;"># 세계제일의 어패류 종합시장</div>
+                            </div>
                         </div>
-                    </div>
+                    </router-link>
                 </a>
                 <a href="">
-                    <div class="top_4" style="background-color: rgb(255, 237, 243);">
-                        <div class="img_div">
-                            <img src="../../public/Top4_gookjae.jpg">
-                        </div>
-                        <div class="top_345_explain">
-                            <div>
-                                <span style=" font-size:30px;">
-                                    <span style="font-size: 100px; color: rgba(0, 0, 0, 0.1);">04</span>
-                                    국제시장
-                                </span>
+                    <router-link to="/touristspotdetails">
+                        <div class="top_4" style="background-color: rgb(255, 237, 243);">
+                            <div class="img_div">
+                                <img src="../../public/Top4_gookjae.jpg">
                             </div>
-                            <div style="margin-top: 30px; font-size: 20px;"># 숱한 사연을 담은 부산 대표 전통시장</div>
+                            <div class="top_345_explain">
+                                <div>
+                                    <span style=" font-size:30px;">
+                                        <span style="font-size: 100px; color: rgba(0, 0, 0, 0.1);">04</span>
+                                        국제시장
+                                    </span>
+                                </div>
+                                <div style="margin-top: 30px; font-size: 20px;"># 숱한 사연을 담은 부산 대표 전통시장</div>
+                            </div>
                         </div>
-                    </div>
+                    </router-link>
                 </a>
                 <a href="">
-                    <div class="top_5" style="background-color: rgb(255, 237, 243);">
-                        <div class="img_div">
-                            <img src="../../public/Top5_ggangtong.jpg">
-                        </div>
-                        <div class="top_345_explain">
-                            <div>
-                                <span style=" font-size:30px;">
-                                    <span style="font-size: 100px; color: rgba(0, 0, 0, 0.1);">05</span>
-                                    깡통시장
-                                </span>
+                    <router-link to="/touristspotdetails">
+                        <div class="top_5" style="background-color: rgb(255, 237, 243);">
+                            <div class="img_div">
+                                <img src="../../public/Top5_ggangtong.jpg">
                             </div>
-                            <div style="margin-top: 30px; font-size: 20px;"># 대한민국 최초 1호의 야시장이 열린 곳</div>
+                            <div class="top_345_explain">
+                                <div>
+                                    <span style=" font-size:30px;">
+                                        <span style="font-size: 100px; color: rgba(0, 0, 0, 0.1);">05</span>
+                                        깡통시장
+                                    </span>
+                                </div>
+                                <div style="margin-top: 30px; font-size: 20px;"># 대한민국 최초 1호의 야시장이 열린 곳</div>
+                            </div>
                         </div>
-                    </div>
+                    </router-link>
                 </a>
             </div>
         </div>
     </div>
 </template>
 
-<script>
+<script scoped>
 export default {
 
 }
@@ -269,9 +279,6 @@ export default {
         }
         .top_1 a div, .top_2 a div{
             display: inline-block;
-        }
-        .top_1 a :last-child div, top_2 a :first-child div{
-            display: block;
         }
         .top_1_explain, .top_2_explain{
             width: 400px;
