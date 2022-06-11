@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'boards',
     'users',
     'corsheaders',  # cors 사용
+    'detail'
+
 ]
 
 MIDDLEWARE = [
@@ -92,9 +94,17 @@ WSGI_APPLICATION = 'busanpro5.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 # db
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 import pymysql
 pymysql.install_as_MySQLdb()
 
+# db
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # engine: mysql
