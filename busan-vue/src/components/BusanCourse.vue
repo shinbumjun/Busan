@@ -1,5 +1,19 @@
 <template>
   <main>
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active head">
+                    <img src="https://cdn.pixabay.com/photo/2022/05/11/23/21/field-7190397_1280.jpg" class="d-block w-100" >
+                    <div class="d-none d-md-block carousel_subtext">
+                        <div class="subject">
+                            <p>부산관광<br>추천 테마 코스</p>
+                            <p style="font-size: 30px;">theme course</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="box" style="height: 2500px;">
     <div class="container">
         <!-- <p style="border-left: 10px solid #153d73; padding: solid #153d73; font-size: 35px; font-weight: bolder" >문의사항 게시판</p> -->
         <div class="border-start border-5 border-primary my-4 ps-3">
@@ -344,6 +358,7 @@
             </div>
         </div>
     </div>
+    </div>
   </main>
 </template>
 
@@ -357,4 +372,5 @@ export default {
 ul{
     list-style : none; padding-left : 0px;
 }
+
 </style>
