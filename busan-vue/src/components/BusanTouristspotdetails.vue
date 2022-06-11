@@ -1,5 +1,19 @@
 <template>
   <main>
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active head">
+                    <img src="https://cdn.pixabay.com/photo/2017/03/14/16/56/banner-2143727_1280.jpg" class="d-block w-100" >
+                    <div class="d-none d-md-block carousel_subtext">
+                        <div class="subject">
+                            <p>관광지</p>
+                            <p style="font-size: 30px;">tourist attraction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="box" style="height: 2000px;">
     <div class="container">
         <h5 class="text-center text-primary my-3">부산시 관광 명소</h5>
         <h2 class="text-center mb-4">해운대해수욕장</h2>
@@ -28,6 +42,7 @@
             <span class="mx-2 text-black-50">#자연</span><span class="mx-2 text-black-50">#자연</span><span class="mx-2 text-black-50">#이색여행</span>
         </div>
         <hr>
+    </div>
     </div>
   </main>
 </template>

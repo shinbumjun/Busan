@@ -75,7 +75,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
         /* headbar Part */
         .head img{
             height: 450px;

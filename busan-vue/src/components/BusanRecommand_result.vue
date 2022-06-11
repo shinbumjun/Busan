@@ -77,7 +77,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
         /* Head IMG CSS*/
         .head img{
             height: 450px;

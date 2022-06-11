@@ -1,5 +1,19 @@
 <template>
     <main>
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active head">
+                        <img src="https://cdn.pixabay.com/photo/2020/03/12/14/24/busan-4925217_1280.jpg" class="d-block w-100" >
+                        <div class="d-none d-md-block carousel_subtext">
+                            <div class="subject">
+                                <p>커뮤니티</p>
+                                <p style="font-size: 30px;">community</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="box" style="height: 1000px;">
         <div class="container">
             <br/>	
             <h2 class="text-center">커뮤니티</h2>
@@ -72,6 +86,7 @@
                     </li>
                 </ul>
             </nav>
+        </div>
         </div>
     </main> 
 </template>
