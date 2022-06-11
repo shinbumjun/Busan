@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users',
+    'users', # 유저
+    'myboard', # 게시판
+
 ]
 
 MIDDLEWARE = [
