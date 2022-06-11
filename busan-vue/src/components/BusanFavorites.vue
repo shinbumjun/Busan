@@ -1,5 +1,21 @@
 <template>
   <main>
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active head">
+                    <img src="https://cdn.pixabay.com/photo/2019/10/05/11/52/nature-4527797_1280.jpg" class="d-block w-100" >
+                    <div class="d-none d-md-block carousel_subtext">
+                        <div class="subject">
+                            <p>즐겨찾기</p>
+                            <p style="font-size: 30px;">favorites</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="box" style="height: 1700px;">
+    <br>
+    <h2 class="text-center">관광지</h2>
     <br>
     <div class="container">
         <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -75,6 +91,7 @@
             </li>
         </ul>
     </nav>
+    </div>
   </main>
 </template>
 

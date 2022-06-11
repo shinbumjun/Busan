@@ -10,7 +10,5 @@ new Vue({
   render: h => h(App),
 }).$mount('#app')
 
-axios.defaults.baseURL = 'https://apidjackets.codewithstein.com'
+axios.defaults.baseURL = 'http://127.0.0.1:8000/'
 
-
-// createApp(App).use(store).use(router, axios).mount('#app')
