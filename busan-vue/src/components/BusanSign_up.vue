@@ -81,6 +81,7 @@ export default {
  created(){
      axios.get('/api/v1/board/1/')
      .then((response) => (this.item = response.data))
+     .then((response) => console(this.item = response.data))
      .catch((err) => console.log(err))
  }
 }
