@@ -26,9 +26,9 @@
                     </div>
                 </div>
                 <div style="text-align: center">
-                    <input type="checkbox" v-model="checkdata" value="man" id="man_check">
+                    <input type="checkbox" value="man" id="man_check">
                     <label for="man_check"></label>
-                    <input type="checkbox" v-model="checkdata" value="woman" id="woman_check">
+                    <input type="checkbox" value="woman" id="woman_check">
                     <label for="woman_check"></label>
                 </div>
                 <div class="label1_explain" style=" text-align: center;">
