@@ -1,4 +1,14 @@
 import router from '@/router'
+import vue from 'vue'
+import vuex from 'vuex'
+
+Vue.use(Vuex)
+
+export const store = new Vuex.Store({
+    state: {
+      todoItems: []
+    }
+  });
 
 const userStore = {
     state: {
