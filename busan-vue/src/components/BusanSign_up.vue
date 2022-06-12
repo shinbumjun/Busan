@@ -18,7 +18,7 @@
         <div class="container" style="height:1350px">
             <form action="${pageContext.request.contextPath}/users/signup.do" method="post" id="myForm">
                 <div>
-                    <label class="control-label" for="users_id">아이디</label>
+                    <label class="control-label" for="users_id">{{item.id}}</label>
                     <input class="form-control" type="text" name="users_id" id="users_id" placeholder="영문자 소문자로 시작하고 5~10글자 이내로 작성해주세요." style="outline: 0;"/>
                     <div id="id_length_validation" class="invalid-feedback">영문자 소문자로 시작하고 5~10글자 이내로 작성해주세요.</div>
                     <div id="id_overlap_validation" class="invalid-feedback">중복된 아이디 입니다.</div>
@@ -70,8 +70,20 @@
 </template>
 
 <script>
-export default {
+import axios from 'axios';
 
+export default {
+ data() {
+     return {
+         item: {}
+     }
+ },
+ created(){
+     axios.get('/api/v1/board/1/')
+     .then((response) => (this.item = response.data))
+     .then((response) => console(this.item = response.data))
+     .catch((err) => console.log(err))
+ }
 }
 </script>
 

@@ -45,7 +45,10 @@ INSTALLED_APPS = [
     'djoser',
     'touristspots',
     'boards',
-    'users'
+    'users',
+    'corsheaders',  # cors 사용
+    'detail'
+
 ]
 
 MIDDLEWARE = [
@@ -56,8 +59,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware', # django cors 사용
 ]
 
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8081',
+    'http://127.0.0.1:8080',
+)
 ROOT_URLCONF = 'busanpro5.urls'
 
 TEMPLATES = [
@@ -91,12 +100,17 @@ WSGI_APPLICATION = 'busanpro5.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7841db93eb9177b840bee12f6b82de003146fe8c
 import pymysql
 pymysql.install_as_MySQLdb()
 
 # db
 DATABASES = {
     'default': {
+<<<<<<< HEAD
         'ENGINE': 'django.db.backends.mysql', # engine: mysql
         'NAME' : 'project1', # DB Name
         'USER' : 'admin', # DB User
@@ -105,10 +119,12 @@ DATABASES = {
         'PORT': '3306', # 데이터베이스 포트
         'OPTIONS':{
             'init_command' : "SET sql_mode='STRICT_TRANS_TABLES'"
+=======
+
+>>>>>>> 7841db93eb9177b840bee12f6b82de003146fe8c
         }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
