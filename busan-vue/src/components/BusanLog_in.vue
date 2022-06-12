@@ -23,9 +23,9 @@
                 <p class="welcome-header__text2">ID와 Password를 입력하여 로그인 하세요.</p>
             </header>
             <form v-on:submit="submitForm" id="Login-form">
-                <input v-model="username" type="text" id="users_id" name="users_id"  placeholder="ID" />
-                <input v-model="password" type="password" id="users_pwd" name="users_pwd"  placeholder="Password"/>
-                <input id = "button" type="submit" value="Log in" style="margin-top:40px;"/>
+                <input v-model="user_id" type="text" id="users_id" name="users_id"  placeholder="ID" required/>
+                <input v-model="password" type="password" id="users_pwd" name="users_pwd"  placeholder="Password" required/>
+                <input @click.prevent="loginSubmit" id = "button" type="submit" value="Log in" style="margin-top:40px;"/>
             </form>
             <router-link to="/signup">
                     <a href="" class="find">회원가입이 필요하십니까?</a>
@@ -35,32 +35,41 @@
 </template>
 
 <script>
-import axios from 'axios';
 export default {
-    data:function(){
-        return{
-            username:"",
-            password:""
-        }
-    },
-    methods: {       // 메서드 구현
-        submitForm: function(){
-            console.log(this.username, this.password);
-            var url = 'https://jsonplaceholder.typicode.com/posts';   //이 url로 데이터를 보내고 받을 수 있음
-            var data = {
-                username: this.username,
-                password: this.password
+  data() {
+    return {
+      user_id: null,
+      password: null,
+      email: null
+    };
+  },
+  methods: {
+    loginSubmit() {
+      let saveData = {};
+      saveData.user_id = this.user_id;
+      saveData.password = this.password;
+      saveData.email = this.email;
+
+      try {
+        this.$axios
+          .post(+ "/login", JSON.stringify(saveData), {
+            headers: {
+              "Content-Type": `application/json`,
+            },
+          })
+          .then((res) => {
+            if (res.status === 200) {
+              // 로그인 성공시 처리해줘야할 부분
+                this.$store.commit("login", res.data);
+                this.$router.push("/");
             }
-            axios.post(url, data)
-                .then(function(response){
-                    console.log(response);
-                })
-                .catch(function(error){
-                    console.log(error);
-                })
-        }
-    }
-}
+          });
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+};
 </script>
 
 <style>
