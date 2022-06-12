@@ -15,21 +15,21 @@
             </div>
         </div>
         <!-- Content Part-->
-        <div class="container" style="height:1350px">
+        <div class="container" style="height:1000px">
             <form action="${pageContext.request.contextPath}/users/signup.do" method="post" id="myForm">
                 <div>
                     <label class="control-label" for="users_id">아이디</label>
-                    <input class="form-control" type="text" name="users_id" id="users_id" placeholder="Email or ID" style="outline: 0;"/>
+                    <input  v-model="user_id" class="form-control" type="text" name="users_id" id="users_id" value="{}" placeholder="Email or ID" style="outline: 0;"/>
                     <div id="id_length_validation" class="invalid-feedback">영문자 소문자로 시작하고 5~10글자 이내로 작성해주세요.</div>
                     <div id="id_overlap_validation" class="invalid-feedback">중복된 아이디 입니다.</div>
                 </div>		
                 <div>
                     <label class="control-label" for="users_name">이름</label>
-                    <input class="form-control" type="text" name="users_name" id="users_name"/>
+                    <input v-model="name" class="form-control" type="text" name="users_name" id="users_name" value="{}"/>
                 </div>
                 <div>
                     <label class="control-label" for="users_pwd">비밀번호</label>
-                    <input class="form-control" type="password" name="users_pwd" id="users_pwd"/>
+                    <input v-model="password" class="form-control" type="password" name="users_pwd" id="users_pwd"/>
                     <div id="pwd_length_validation" class="invalid-feedback">영문자,숫자,특수문자를 하나이상을 사용해주세요.</div>
                     <div id="pwd_length_validation" class="valid-feedback">비밀번호 확인</div>
                 </div>
@@ -41,28 +41,11 @@
                 </div>
                 <div>
                     <label class="control-label" for="users_email">이메일</label>
-                    <input class="form-control" type="text" name="users_email" id="users_email"/>
+                    <input v-model="email" class="form-control" type="text" name="users_email" id="users_email" value="{}"/>
                     <div class="invalid-feedback">이메일 형식을 확인 하세요.</div>
                 </div>
-                <div>
-                    <label class="control-label" for="users_sex">성별</label>
-                    <input class="form-control" type="text" name="users_sex" id="users_sex"/>
-                </div>
-                <div>
-                    <label class="control-label" for="users_birthday">생년월일</label>
-                    <input class="form-control" type="number" name="users_birthday" id="users_birthday"/>
-                    
-                </div>
-                <div>
-                    <label class="control-label" for="users_phoneNum">연락처</label>
-                    <input class="form-control" type="text" name="users_phoneNum" id="users_phoneNum"/>
-                </div>
-                <div>
-                    <label class="control-label" for="users_addr">주소</label>
-                    <input class="form-control" type="text" name="users_addr" id="users_addr"/>
-                </div>
                 <div style="margin-top:50px; padding-top:40px;">
-                    <button class="btn btn-primary submit-btn" type="submit" style="border:none; width: 350px;">수정하기</button>
+                    <button @click="create" class="btn btn-primary submit-btn" type="submit" style="border:none; width: 350px;">수정하기</button>
                 </div>
             </form>
         </div>
@@ -71,7 +54,7 @@
 
 <script>
 export default {
-
+    props:["propsdata"]
 }
 </script>
 
