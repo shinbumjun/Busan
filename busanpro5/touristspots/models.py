@@ -52,5 +52,10 @@ class FavoriteSpot(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="favoritespots_user")
     mytouristspot = models.ForeignKey(TouristSpot, on_delete=models.CASCADE, related_name="favoritespots_spot")
 
-
+class RecommendModel(models.Model):
+    location = models.CharField(max_length=255)
+    theme = models.TextField(blank=True)
+    score = models.TextField(blank=True)
+    group = models.TextField(blank=True)
+    age = models.TextField(blank=True)
 
