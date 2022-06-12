@@ -40,7 +40,6 @@ export default {
     return {
       user_id: null,
       password: null,
-      email: null
     };
   },
   methods: {
@@ -48,7 +47,6 @@ export default {
       let saveData = {};
       saveData.user_id = this.user_id;
       saveData.password = this.password;
-      saveData.email = this.email;
 
       try {
         this.$axios
