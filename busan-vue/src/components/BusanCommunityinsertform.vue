@@ -48,7 +48,7 @@ export default {
       JSON.stringify(params), {headers: { 'content-type':
       'application/json',
       // 나중에 받아올 토큰값을 적는다. 현재 임시로 test3의 토큰값을 적어놓음.
-      'Authorization': 'token e3594ca771f406537f201cda58706c0cdd773249cd98bc213d4dd746726245e7' 
+      'Authorization': 'token d548c2da5d0b412017c3bad825397d0427f8e956ff7d45c4b9b940d05976458d' 
       }}
       ).then(res => {
         alert("성공적으로 저장되었습니다.\nn글 번호 : [" + res.data + "]")
