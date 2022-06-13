@@ -21,7 +21,7 @@
             </div>
             <div class="result_top">
                 <div class="selected_options">
-                    <p style="margin-left: 15px;">{ }님이 선택하신 정보입니다.<br> 선택하신 {},{},{},{},{} 에 따른 여행지를 추천합니다.</p>
+                    <p style="margin-left: 15px;">{{propsdata.user.user_id}} 님이 선택하신 정보입니다.<br> 선택하신 #{{theme}}, #{{companion}}, #{{age}} 에 따른 여행지를 추천합니다.</p>
                 </div>
             </div>
             <div class="result" style="background-color: #b7e9ff;">
@@ -80,6 +80,19 @@
 <script>
     // import axios from 'axios';
     export default{
+        props:["selecteddata", "userselect","propsdata"],
+            data(){
+                return{
+                    theme:"",
+                    age:"",
+                    companion:""
+                }
+            },created(){
+                this.theme = this.userselect.theme,
+                this.age = this.userselect.age,
+                this.companion = this.userselect.companion
+            },
+    }
         /*
         data() {
             return {
@@ -92,7 +105,6 @@
                 .then((response) => console(this.item = response.data))
                 .catch((err) => console.log(err))
         } */
-    }
 </script>
 <style scoped>
         /* Head IMG CSS*/
