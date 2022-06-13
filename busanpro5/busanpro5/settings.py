@@ -45,7 +45,10 @@ INSTALLED_APPS = [
     'djoser',
     'touristspots',
     'boards',
-    'users'
+    'users',
+    'corsheaders',  # cors 사용
+    'detail'
+
 ]
 
 MIDDLEWARE = [
@@ -56,12 +59,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware', # django cors 사용
 ]
+
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8080',  # vue의 포트 번호
-    'http://127.0.0.1:8000',
+    'http://localhost:8081',
+    'http://127.0.0.1:8080',
+
 )
 ROOT_URLCONF = 'busanpro5.urls'
 
@@ -90,13 +96,13 @@ WSGI_APPLICATION = 'busanpro5.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 # db
-import pymysql
-pymysql.install_as_MySQLdb()
 
 DATABASES = {
-
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

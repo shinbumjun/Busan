@@ -37,13 +37,3 @@ class FavoriteSpotSerializer(serializers.ModelSerializer):
             "user_id",
             "touristspots",
         )
-        
-    # def create(self, validated_data):
-    #     touristspots_data = validated_data.pop('touristspots')
-    #     order = TouristSpot.objects.create(**validated_data)
-
-    #     for touristspot_data in touristspots_data:
-    #         FavoriteSpot.objects.create(order=order, **touristspots_data)
-            
-    #     return order
-
