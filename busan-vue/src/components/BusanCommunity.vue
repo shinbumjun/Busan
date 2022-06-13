@@ -31,17 +31,17 @@
                         <th>조회수</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody v-for="(item, i) in paginatedData" v-bind:key="i">
                     <tr>
-                        <td>1</td>
+                        <td>{{item.id}}</td>
                         <td>
-                            <router-link to="/communitydetail">2022.6.6.(월) 현충일 정기휴무일 변경 안내</router-link>
+                            <router-link :to="'/communitydetail/' + item.id">{{item.title}}</router-link>
                         </td>
-                        <td>부산관광공사</td>
-                        <td>2022-05-30</td>
-                        <td>21</td>
+                        <td>{{item.author_name}}</td>
+                        <td>{{item.dt_created}}</td>
+                        <td>{{item.readcnt}}</td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <td>2</td>
                         <td>
                             <a href="">사회적거리두기에 따른 사업장 운영시간 변경 안내(2022.4.18.~)</a>
@@ -49,7 +49,7 @@
                         <td>관광사업팀</td>
                         <td>2022-04-18</td>
                         <td>198</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
             <div style="clear:both;">
@@ -70,19 +70,19 @@
                 </form>	
                 <br>
                 <p>
-                    전체 <strong>?</strong> 개의 글이 검색 되었습니다.
+                    전체 <strong>{{nowItems}}</strong> 개의 글이 검색 되었습니다.
                 </p>
             </div>
             <nav>
                 <ul class="pagination justify-content-center">
                     <li class="page-item">
-                        <a class="page-link" href="">Prev</a>
+                        <button class="page-link" :disabled="pageNum === 0" @click="prevPage" >Prev</button>
                     </li>
                     <li class="page-item active">
-                        <a class="page-link" href="">1</a>
+                        <p class="page-link">{{ pageNum + 1 }} / {{ pageCount }} 페이지</p>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link" href="">Next</a>
+                    <li class="page-item" >
+                        <button class="page-link" :disabled="pageNum >= pageCount - 1" @click="nextPage" >Next</button>
                     </li>
                 </ul>
             </nav>
@@ -92,8 +92,53 @@
 </template>
 
 <script>
-export default {
+import axios from 'axios';
 
+export default {
+ data() {
+     return {
+         items: [],
+         pageNum: 0,
+         pageSize: 20,
+     }
+ },
+ created(){
+     axios.get('/api/v1/board/')
+     .then((response) => this.items = response.data)
+     .catch((err) => console.log(err))
+
+ },
+  methods: {
+    nextPage () {
+      this.pageNum += 1;
+    },
+    prevPage () {
+      this.pageNum -= 1;
+    }
+  },
+  computed: {
+    pageCount () {
+      let listLeng = this.items.length,
+          listSize = this.pageSize,
+          page = Math.floor(listLeng / listSize);
+      if (listLeng % listSize > 0) page += 1;
+      
+      /*
+      아니면 page = Math.floor((listLeng - 1) / listSize) + 1;
+      이런식으로 if 문 없이 고칠 수도 있다!
+      */
+      return page;
+    },
+    paginatedData () {
+      const start = this.pageNum * this.pageSize,
+            end = start + this.pageSize;
+      return this.items.slice(start, end);
+    },
+    nowItems () {
+        let itemsCount = this.items.length
+        return itemsCount
+    }
+  },
 }
 </script>
 

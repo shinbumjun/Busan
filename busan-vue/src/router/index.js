@@ -52,11 +52,11 @@ export default new VueRouter({
             component: BusanCommunity
         },
         {
-            path: '/communityinsertform',
+            path: '/communityinsertform/',
             component: BusanCommunityinsertform
         },
         {
-            path: '/communitydetail',
+            path: '/communitydetail/:id',
             component: BusanCommunitydetail
         },
         {

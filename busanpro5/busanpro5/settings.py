@@ -41,12 +41,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     "knox",
-    #'corsheaders',
+    'corsheaders',
     'djoser',
     'touristspots',
     'boards',
     'users',
-    'corsheaders',  # cors 사용
     'detail'
 
 ]
@@ -59,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
     'corsheaders.middleware.CorsMiddleware', # django cors 사용
 ]
 
@@ -66,6 +66,7 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8081',
     'http://127.0.0.1:8080',
+
 )
 ROOT_URLCONF = 'busanpro5.urls'
 
@@ -94,20 +95,18 @@ WSGI_APPLICATION = 'busanpro5.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 # db
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
-import pymysql
-pymysql.install_as_MySQLdb()
-
-# db
 DATABASES = {
     'default': {
-
+        'ENGINE': 'django.db.backends.mysql', # engine: mysql
+        'NAME' : 'project1', # DB Name
+        'USER' : 'admin', # DB User
+        'PASSWORD' : 'admin123', # Password
+        'HOST': 'database-1.c41a514inqzx.ap-northeast-2.rds.amazonaws.com', # 생성한 데이터베이스 엔드포인트
+        'PORT': '3306', # 데이터베이스 포트
+        'OPTIONS':{
+            'init_command' : "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 
@@ -166,5 +165,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.AllowAny",
     ],
+
+
 
 }
