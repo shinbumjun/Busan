@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav_bar v-bind:propsdata="userList"></nav_bar>
-    <router-view v-bind:propsdata="userList" v-bind:selectdata="userSelect" v-on:saved="getUserList" v-on:checked="getSelectList"></router-view>    
+    <router-view v-bind:propsdata="userList" v-bind:userselect="select" v-bind:selecteddata="userSelectResult" v-on:saved="getUserList" v-on:checked="getSelectList"></router-view>    
     <!-- v-bind:하위컴포넌트 속성명="상위 컴포넌트 전달할 데이터명"  -->
     <Main_footer></Main_footer>
   </div>
@@ -23,7 +23,7 @@ export default {
   data:() =>{
     return{
       userList:[],
-      userSelect:[],
+      userSelectResult:[],
       user:{
         user_id : "",
         password : ""
@@ -32,12 +32,11 @@ export default {
         theme: "",
         companion:"",
         age:""
-      }
+      },
     };
   },
   mounted(){
      // DOM 객체 생성 후 DRF 서버에서 데이터를 가져와 userList에 저장
-    
     axios({
       method:"POST",
       url:url+"auth/login/",
@@ -56,7 +55,7 @@ export default {
         data:this.select
       })
         .then(response => {
-          this.userSelect = response.data;
+          this.userSelectResult = response.data;
           console.log("Success", response);
         })
         .catch(error => {
@@ -82,15 +81,15 @@ export default {
     },
     getSelectList: function(checkdata) {
       this.select.theme = checkdata.theme,
-      this.select.compainon = checkdata.companion,
-      this.select.age = checkdata.age,
+      this.select.companion = checkdata.companion,
+      this.select.age = checkdata.age
       axios({
         method: "POST",
         url: url+"api/v1/recommendspots/",
         data:this.select
       })
         .then(response => {
-          this.userSelect = response.data;
+          this.userSelectResult = response.data;
           console.log("Success", response);
         })
         .catch(error => {
