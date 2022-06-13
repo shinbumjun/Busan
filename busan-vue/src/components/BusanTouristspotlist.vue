@@ -3,7 +3,7 @@
       <div class="container">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col" v-for="p in paginatedData" :key="p.id">
-                <router-link to="/touristspotdetails">
+                <router-link :to="'/touristspotdetails/' + p.id">
                     <div class="card h-100">
                         <img :src="p.get_thumbnail" class="card-img-top" alt="...">
                         <div class="card-body">

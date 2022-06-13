@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     "knox",
-    'corsheaders',
     'djoser',
     'touristspots',
     'boards',
@@ -96,9 +95,11 @@ WSGI_APPLICATION = 'busanpro5.wsgi.application'
 
 # db
 
+# db
 DATABASES = {
     'default': {
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
