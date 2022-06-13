@@ -57,19 +57,32 @@ class MyFavoriteSpotsDetail(generics.RetrieveUpdateDestroyAPIView):
 from .recommendspots import recommed
 import pandas as pd
 
-class RecommendList(APIView):
+# class RecommendList(APIView):
 
-    def get(self, request, format=None):
-        theme = request.GET.get('theme', '')
-        companion = request.GET.get('companion', '')
-        age = request.GET.get('age', '')
-	    # query = request.GET.get('query', 'price')
+#     def get(self, request, format=None):
+#         theme = request.GET.get('theme', '')
+#         companion = request.GET.get('companion', '')
+#         age = request.GET.get('age', '')
+# 	    # query = request.GET.get('query', 'price')
 
-        a = recommed(theme, companion, age)
-        arr = a.tolist()
-        spots = TouristSpot.objects.filter(Q(name=arr[0]) | Q(name=arr[1]) | Q(name=arr[2]))
+#         a = recommed(theme, companion, age)
+#         arr = a.tolist()
+#         spots = TouristSpot.objects.filter(Q(name=arr[0]) | Q(name=arr[1]) | Q(name=arr[2]))
 
-        serializer = TouristSpotSerializer(spots, many=True)
-        return Response(serializer.data)
+#         serializer = TouristSpotSerializer(spots, many=True)
+#         return Response(serializer.data)
+
+@api_view(['POST'])
+def recommendList(request):
+    theme = request.data.get('theme', '')
+    companion = request.data.get('companion', '')
+    age = request.data.get('age', '')
+
+    a = recommed(theme, companion, age)
+    arr = a.tolist()
+    spots = TouristSpot.objects.filter(Q(name=arr[0]) | Q(name=arr[1]) | Q(name=arr[2]))
+
+    serializer = TouristSpotSerializer(spots, many=True)
+    return Response(serializer.data)
 
 

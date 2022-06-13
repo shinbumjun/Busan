@@ -25,9 +25,6 @@ class FavoriteSpotSerializer(serializers.ModelSerializer):
             "id",
             "user_id",
             "touristspots",
-            "description",
-            "thema",
-            "address",
-            "get_image",
-            "get_thumbnail"
         )
+
+
