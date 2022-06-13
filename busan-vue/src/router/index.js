@@ -63,7 +63,7 @@ export default new VueRouter({
             component: BusanFavorites
         },
         {
-            path: '/touristspotdetails',
+            path: '/touristspotdetails/:id',
             component: BusanTouristspotdetails
         },
         {

@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     "knox",
-    'corsheaders',
     'djoser',
     'touristspots',
     'boards',
@@ -99,8 +98,15 @@ WSGI_APPLICATION = 'busanpro5.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql', # engine: mysql
+        'NAME' : 'project1', # DB Name
+        'USER' : 'admin', # DB User
+        'PASSWORD' : 'admin123', # Password
+        'HOST': 'database-1.c41a514inqzx.ap-northeast-2.rds.amazonaws.com', # 생성한 데이터베이스 엔드포인트
+        'PORT': '3306', # 데이터베이스 포트
+        'OPTIONS':{
+            'init_command' : "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 
