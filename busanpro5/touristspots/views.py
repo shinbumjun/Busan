@@ -19,8 +19,7 @@ from rest_framework.decorators import api_view
 from knox.auth import TokenAuthentication
 
 from .models import TouristSpot, FavoriteSpot, RecommendModel
-from .serializers import TouristSpotSerializer, FavoriteSpotSerializer, MyFavoriteSpotSerializer
-
+from .serializers import TouristSpotSerializer, FavoriteSpotSerializer
 from django.db.models import Q
 
 class TouristSpotsList(generics.ListCreateAPIView):
@@ -34,7 +33,7 @@ class TouristSpotDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class MyFavoriteSpotsList(generics.ListCreateAPIView):
     queryset = FavoriteSpot.objects.all()
-    serializer_class = MyFavoriteSpotSerializer
+    serializer_class = FavoriteSpotSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
     
@@ -45,12 +44,12 @@ class MyFavoriteSpotsList(generics.ListCreateAPIView):
         # Note the use of `get_queryset()` instead of `self.queryset`
         queryset = self.get_queryset()
         queryset = queryset.filter(user=self.request.user)
-        serializer = MyFavoriteSpotSerializer(queryset, many=True)
+        serializer = FavoriteSpotSerializer(queryset, many=True)
         return Response(serializer.data)
 
 class MyFavoriteSpotsDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = FavoriteSpot.objects.all()
-    serializer_class = MyFavoriteSpotSerializer
+    serializer_class = FavoriteSpotSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 

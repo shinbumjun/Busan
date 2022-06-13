@@ -15,17 +15,6 @@ class TouristSpotSerializer(serializers.ModelSerializer):
             "get_thumbnail"
         )
 
-class MyFavoriteSpotSerializer(serializers.ModelSerializer):
-    touristspots = TouristSpotSerializer(many=True)
-
-    class Meta:
-        model = FavoriteSpot
-        fields = (
-            "id",
-            "user_id",
-            "touristspots"
-        )
-
 
 class FavoriteSpotSerializer(serializers.ModelSerializer):
     touristspots = TouristSpotSerializer(many=True)
@@ -36,4 +25,9 @@ class FavoriteSpotSerializer(serializers.ModelSerializer):
             "id",
             "user_id",
             "touristspots",
+            "description",
+            "thema",
+            "address",
+            "get_image",
+            "get_thumbnail"
         )
