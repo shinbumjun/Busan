@@ -24,11 +24,12 @@ export default new VueRouter({
     routes: [
         {
             path: '/',
-            component: BusanHome
+            component: BusanLog_in
         },
         {
-            path: '/login',
-            component: BusanLog_in
+            path: '/home',
+            name:'login',
+            component: BusanHome
         },
         {
             path: '/signup',
