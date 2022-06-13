@@ -29,7 +29,7 @@
                 </div>
                 <div>
                     <label class="control-label" for="users_pwd">비밀번호</label>
-                    <input v-model="password" class="form-control" type="password" name="users_pwd" id="users_pwd"/>
+                    <input v-model="password" class="form-control" type="password" name="users_pwd" id="users_pwd" disabled/>
                     <div id="pwd_length_validation" class="invalid-feedback">영문자,숫자,특수문자를 하나이상을 사용해주세요.</div>
                     <div id="pwd_length_validation" class="valid-feedback">비밀번호 확인</div>
                 </div>
@@ -52,12 +52,16 @@ export default {
     data(){
         return{
                 user_id:"",
-                name:""
+                name:"",
+                email:""
         }
     },created(){
         this.user_id = this.propsdata.user.user_id,
-        this.name = this.propsdata.user.name
-    },
+        this.name = this.propsdata.user.name,
+        this.email= this.propsdata.user.email
+    },mounted(){
+        
+    }
 }   
 </script>
 
