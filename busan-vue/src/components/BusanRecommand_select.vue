@@ -47,15 +47,15 @@
                     </div>
                 </div>
                 <div style="text-align: center">
-                    <input type="checkbox" v-model="checkdata" value="10" id="check_10th">
+                    <input type="checkbox" v-model="checkdata.age" value="10" id="check_10th">
                     <label for="check_10th"></label>
-                    <input type="checkbox" v-model="checkdata" value="20" id="check_20th">
+                    <input type="checkbox" v-model="checkdata.age" value="20" id="check_20th">
                     <label for="check_20th"></label>
-                    <input type="checkbox" v-model="checkdata" value="30" id="check_30th">
+                    <input type="checkbox" v-model="checkdata.age" value="30" id="check_30th">
                     <label for="check_30th"></label>
-                    <input type="checkbox" v-model="checkdata" value="40" id="check_40th">
+                    <input type="checkbox" v-model="checkdata.age" value="40" id="check_40th">
                     <label for="check_40th"></label>
-                    <input type="checkbox" v-model="checkdata" value="50" id="check_50th">
+                    <input type="checkbox" v-model="checkdata.age" value="50" id="check_50th">
                     <label for="check_50th"></label>
                 </div>
                 <div class="label2_explain" style=" text-align: center;">
@@ -83,9 +83,9 @@
                     </div>
                 </div>
                 <div style="text-align: center">
-                    <input type="checkbox" v-model="checkdata" value="solo" id="check_solo">
+                    <input type="checkbox" v-model="checkdata" value="혼자" id="check_solo">
                     <label for="check_solo"></label>
-                    <input type="checkbox" v-model="checkdata" value="couple" id="check_couple">
+                    <input type="checkbox" v-model="checkdata" value="커플" id="check_couple">
                     <label for="check_couple"></label>
                     <input type="checkbox" v-model="checkdata" value="friends" id="check_friends">
                     <label for="check_friends"></label>
@@ -138,7 +138,7 @@
                             <label for="check_history"></label>
                         </div>
                         <div>
-                            <input type="checkbox" v-model="checkdata" value="walking" id="check_walking">
+                            <input type="checkbox" v-model="checkdata" value="걷기" id="check_walking">
                             <label for="check_walking"></label>
                         </div>
                         <div>
@@ -194,7 +194,11 @@
 export default{
         data() {
             return {
-                checkdata : []
+                checkdata : [
+                    theme="",
+                    companion="",
+                    age=""
+                ]
             }
         },
         methods: {
