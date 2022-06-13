@@ -108,7 +108,6 @@ pymysql.install_as_MySQLdb()
 DATABASES = {
     'default': {
 
-        }
     }
 }
 
