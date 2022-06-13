@@ -19,8 +19,7 @@ from rest_framework.decorators import api_view
 from knox.auth import TokenAuthentication
 
 from .models import TouristSpot, FavoriteSpot, RecommendModel
-from .serializers import TouristSpotSerializer, FavoriteSpotSerializer, MyFavoriteSpotSerializer
-
+from .serializers import TouristSpotSerializer, FavoriteSpotSerializer
 from django.db.models import Q
 
 class TouristSpotsList(generics.ListCreateAPIView):
@@ -34,7 +33,7 @@ class TouristSpotDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class MyFavoriteSpotsList(generics.ListCreateAPIView):
     queryset = FavoriteSpot.objects.all()
-    serializer_class = MyFavoriteSpotSerializer
+    serializer_class = FavoriteSpotSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
     
@@ -45,12 +44,12 @@ class MyFavoriteSpotsList(generics.ListCreateAPIView):
         # Note the use of `get_queryset()` instead of `self.queryset`
         queryset = self.get_queryset()
         queryset = queryset.filter(user=self.request.user)
-        serializer = MyFavoriteSpotSerializer(queryset, many=True)
+        serializer = FavoriteSpotSerializer(queryset, many=True)
         return Response(serializer.data)
 
 class MyFavoriteSpotsDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = FavoriteSpot.objects.all()
-    serializer_class = MyFavoriteSpotSerializer
+    serializer_class = FavoriteSpotSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
@@ -58,19 +57,32 @@ class MyFavoriteSpotsDetail(generics.RetrieveUpdateDestroyAPIView):
 from .recommendspots import recommed
 import pandas as pd
 
-class RecommendList(APIView):
+# class RecommendList(APIView):
 
-    def get(self, request, format=None):
-        theme = request.GET.get('theme', '')
-        companion = request.GET.get('companion', '')
-        age = request.GET.get('age', '')
-	    # query = request.GET.get('query', 'price')
+#     def get(self, request, format=None):
+#         theme = request.GET.get('theme', '')
+#         companion = request.GET.get('companion', '')
+#         age = request.GET.get('age', '')
+# 	    # query = request.GET.get('query', 'price')
 
-        a = recommed(theme, companion, age)
-        arr = a.tolist()
-        spots = TouristSpot.objects.filter(Q(name=arr[0]) | Q(name=arr[1]) | Q(name=arr[2]))
+#         a = recommed(theme, companion, age)
+#         arr = a.tolist()
+#         spots = TouristSpot.objects.filter(Q(name=arr[0]) | Q(name=arr[1]) | Q(name=arr[2]))
 
-        serializer = TouristSpotSerializer(spots, many=True)
-        return Response(serializer.data)
+#         serializer = TouristSpotSerializer(spots, many=True)
+#         return Response(serializer.data)
+
+@api_view(['POST'])
+def recommendList(request):
+    theme = request.data.get('theme', '')
+    companion = request.data.get('companion', '')
+    age = request.data.get('age', '')
+
+    a = recommed(theme, companion, age)
+    arr = a.tolist()
+    spots = TouristSpot.objects.filter(Q(name=arr[0]) | Q(name=arr[1]) | Q(name=arr[2]))
+
+    serializer = TouristSpotSerializer(spots, many=True)
+    return Response(serializer.data)
 
 

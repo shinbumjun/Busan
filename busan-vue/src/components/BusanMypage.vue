@@ -16,10 +16,10 @@
         </div>
         <!-- Content Part-->
         <div class="container" style="height:1000px">
-            <form action="${pageContext.request.contextPath}/users/signup.do" method="post" id="myForm">
+            <form  id="myForm">
                 <div>
                     <label class="control-label" for="users_id">아이디</label>
-                    <input  v-model="user_id" class="form-control" type="text" name="users_id" id="users_id" value="{}" placeholder="Email or ID" style="outline: 0;"/>
+                    <input v-model="user_id" class="form-control" type="text" name="users_id" id="users_id" value="{}"  placeholder=""  style="outline: 0;"/>
                     <div id="id_length_validation" class="invalid-feedback">영문자 소문자로 시작하고 5~10글자 이내로 작성해주세요.</div>
                     <div id="id_overlap_validation" class="invalid-feedback">중복된 아이디 입니다.</div>
                 </div>		
@@ -32,12 +32,6 @@
                     <input v-model="password" class="form-control" type="password" name="users_pwd" id="users_pwd"/>
                     <div id="pwd_length_validation" class="invalid-feedback">영문자,숫자,특수문자를 하나이상을 사용해주세요.</div>
                     <div id="pwd_length_validation" class="valid-feedback">비밀번호 확인</div>
-                </div>
-                <div>
-                    <label class="control-label" for="users_pwd2">비밀번호 확인</label>
-                    <input class="form-control" type="password" name="users_pwd2" id="users_pwd2"/>
-                    <div id="pwd2_overlap_validation" class="invalid-feedback">비밀번호가 일치하지 않습니다.</div>
-                    <div id="pwd2_overlap_validation" class="valid-feedback">비밀번호가 일치합니다.</div>
                 </div>
                 <div>
                     <label class="control-label" for="users_email">이메일</label>
@@ -54,8 +48,17 @@
 
 <script>
 export default {
-    props:["propsdata"]
-}
+    props:["propsdata"],
+    data(){
+        return{
+                user_id:"",
+                name:""
+        }
+    },created(){
+        this.user_id = this.propsdata.user.user_id,
+        this.name = this.propsdata.user.name
+    },
+}   
 </script>
 
 <style>

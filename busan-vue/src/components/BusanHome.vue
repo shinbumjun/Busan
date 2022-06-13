@@ -192,7 +192,7 @@
 
 <script scoped>
 export default {
-
+    props: ["propsdata"],
 }
 </script>
 

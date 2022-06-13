@@ -26,9 +26,12 @@
                     </li>
                 </ul>
                 <div class="navEnd">
-                    <button class="Btn"><router-link to="/login">Log-in</router-link></button>
-                    <span>|</span>
-                    <button class="Btn" sty><router-link to="/signup">Sign-up</router-link></button>
+                    <button class="Btn" v-if = "propsdata.user.user_id!=null">
+                        <router-link to="/mypage">{{propsdata.user.user_id}}</router-link>
+                    </button>
+                    <button class="Btn" v-else>
+                        <router-link to="/">로그인</router-link>
+                    </button>
                     <span>|</span>
                     <button class="Btn" >
                         <router-link to="/favorites">
@@ -45,7 +48,11 @@
 
 <script>
 export default{
-    name: 'nav_bar'
+    name: 'nav_bar',
+    props: ["propsdata"],
+    mounted(){
+        
+    }
 }
 </script>
 
