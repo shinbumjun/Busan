@@ -22,9 +22,9 @@
                 <p class="welcome-header__text">사용자 계정이 있다면,</p>
                 <p class="welcome-header__text2">ID와 Password를 입력하여 로그인 하세요.</p>
             </header>
-            <form v-on:submit="submitForm" id="Login-form">
-                <input v-model="user_id" type="text" id="users_id" name="users_id"  placeholder="ID" required/>
-                <input v-model="password" type="password" id="users_pwd" name="users_pwd"  placeholder="Password" required/>
+            <form id="Login-form">
+                <input v-model="data.user_id" type="text" id="users_id" name="users_id"  placeholder="ID" required/>
+                <input v-model="data.password" type="password" id="users_pwd" name="users_pwd"  placeholder="Password" required/>
                 <input @click.prevent="loginSubmit" id = "button" type="submit" value="Log in" style="margin-top:40px;"/>
             </form>
             <router-link to="/signup">
@@ -35,39 +35,41 @@
 </template>
 
 <script>
+import axios from "axios";
+let url = "http://127.0.0.1:8000/auth/login/";
+
 export default {
   data() {
     return {
-      user_id: null,
-      password: null,
+        data:{
+            user_id: "",
+            password: "",
+        },
     };
   },
+  props: ["propsdata"],
   methods: {
     loginSubmit() {
       let saveData = {};
-      saveData.user_id = this.user_id;
-      saveData.password = this.password;
+      saveData.user_id = this.data.user_id;
+      saveData.password = this.data.password;
 
-      try {
-        this.$axios
-          .post(+ "/login", JSON.stringify(saveData), {
-            headers: {
-              "Content-Type": `application/json`,
-            },
+        axios({
+          method:"POST",
+          url:url,
+          data: this.data
           })
           .then((res) => {
             if (res.status === 200) {
               // 로그인 성공시 처리해줘야할 부분
-                this.$store.commit("login", res.data);
-                this.$router.push("/");
+                console.log("",res.data);
+                this.$emit("saved",this.data)
+                this.$router.push("/home");
             }
           });
-      } catch (error) {
-        console.error(error);
-      }
+      },
     },
-  },
-};
+  }
 </script>
 
 <style>
