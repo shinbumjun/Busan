@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'touristspots',
     'boards',
     'users',
-    'corsheaders',  # cors 사용
     'detail'
 
 ]
@@ -99,8 +98,7 @@ WSGI_APPLICATION = 'busanpro5.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
     }
 }
 

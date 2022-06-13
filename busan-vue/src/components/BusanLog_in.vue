@@ -22,10 +22,10 @@
                 <p class="welcome-header__text">사용자 계정이 있다면,</p>
                 <p class="welcome-header__text2">ID와 Password를 입력하여 로그인 하세요.</p>
             </header>
-            <form v-on:submit="submitForm" id="Login-form">
-                <input v-model="username" type="text" id="users_id" name="users_id"  placeholder="ID" />
-                <input v-model="password" type="password" id="users_pwd" name="users_pwd"  placeholder="Password"/>
-                <input id = "button" type="submit" value="Log in" style="margin-top:40px;"/>
+            <form id="Login-form">
+                <input v-model="data.user_id" type="text" id="users_id" name="users_id"  placeholder="ID" required/>
+                <input v-model="data.password" type="password" id="users_pwd" name="users_pwd"  placeholder="Password" required/>
+                <input @click.prevent="loginSubmit" id = "button" type="submit" value="Log in" style="margin-top:40px;"/>
             </form>
             <router-link to="/signup">
                     <a href="" class="find">회원가입이 필요하십니까?</a>
@@ -35,32 +35,41 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
+let url = "http://127.0.0.1:8000/auth/login/";
+
 export default {
-    data:function(){
-        return{
-            username:"",
-            password:""
-        }
-    },
-    methods: {       // 메서드 구현
-        submitForm: function(){
-            console.log(this.username, this.password);
-            var url = 'https://jsonplaceholder.typicode.com/posts';   //이 url로 데이터를 보내고 받을 수 있음
-            var data = {
-                username: this.username,
-                password: this.password
+  data() {
+    return {
+        data:{
+            user_id: "",
+            password: "",
+        },
+    };
+  },
+  props: ["propsdata"],
+  methods: {
+    loginSubmit() {
+      let saveData = {};
+      saveData.user_id = this.data.user_id;
+      saveData.password = this.data.password;
+
+        axios({
+          method:"POST",
+          url:url,
+          data: this.data
+          })
+          .then((res) => {
+            if (res.status === 200) {
+              // 로그인 성공시 처리해줘야할 부분
+                console.log("",res.data);
+                this.$emit("saved",this.data)
+                this.$router.push("/home");
             }
-            axios.post(url, data)
-                .then(function(response){
-                    console.log(response);
-                })
-                .catch(function(error){
-                    console.log(error);
-                })
-        }
-    }
-}
+          });
+      },
+    },
+  }
 </script>
 
 <style>
