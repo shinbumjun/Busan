@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav_bar v-bind:propsdata="userList"></nav_bar>
-    <router-view v-bind:propsdata="userList" v-on:saved="getUserList"></router-view>    
+    <router-view v-bind:propsdata="userList" v-bind:selectdata="userSelect" v-on:saved="getUserList" v-on:checked="getSelectList"></router-view>    
     <!-- v-bind:하위컴포넌트 속성명="상위 컴포넌트 전달할 데이터명"  -->
     <Main_footer></Main_footer>
   </div>
@@ -27,6 +27,11 @@ export default {
       user:{
         user_id : "",
         password : ""
+      },
+      select:{
+        theme: "",
+        companion:"",
+        age:""
       }
     };
   },
@@ -45,7 +50,18 @@ export default {
     .catch(error => {
       console.log("Failed to get userList",error.response);
     });
-    
+    axios({
+        method: "POST",
+        url: url+"api/v1/recommendspots/",
+        data:this.select
+      })
+        .then(response => {
+          this.userSelect = response.data;
+          console.log("Success", response);
+        })
+        .catch(error => {
+          console.log("Failed to get userSelect", error.response);
+        });
   },
   methods:{ //CRUD Logic
      getUserList: function(data) {
@@ -64,10 +80,14 @@ export default {
               console.log("Failed to get userList", error.response);
             });
     },
-    getSelectList: function() {
+    getSelectList: function(checkdata) {
+      this.select.theme = checkdata.theme,
+      this.select.compainon = checkdata.companion,
+      this.select.age = checkdata.age,
       axios({
-        method: "GET",
-        url: url+"/"
+        method: "POST",
+        url: url+"api/v1/recommendspots/",
+        data:this.select
       })
         .then(response => {
           this.userSelect = response.data;
