@@ -180,9 +180,7 @@
                         </div>
                     </div>
                     <div style="text-align: center; margin-top: 70px;">
-                        <router-link to="/recommand_result">
-                            <input class="submit" type="submit" value="추천받으러 Go!" @click="checkOptions()" style="margin-top:40px;"/>
-                        </router-link>
+                            <input class="submit" type="submit" value="추천받으러 Go!" @click="checkOptions" style="margin-top:40px;"/>
                     </div>
                 </div>
             </div>
@@ -195,24 +193,27 @@ import axios from "axios";
 let url = "http://127.0.0.1:8000/api/v1/recommendspots/";
 
 export default{
-        data(){
-            return {
-                checkdata : {
-                    theme:"",
-                    companion:"",
-                    age:"",
-                },
-            };
-        },
-        props: ["selectdata"],
-        methods: {
-            checkOptions : function(){
-                console.log(this.checkdata);
+    data() {
+        return {
+            checkdata:{
+                theme: "",
+                companion: "",
+                age: "",
+            },
+        };
+    },
+    props: ["userselect"],
+    methods: {
+        checkOptions(){
+            let saveData = {};
+            saveData.theme = this.checkdata.theme;
+            saveData.companion = this.checkdata.companion;
+            saveData.age = this.checkdata.age;
 
-                axios({
-                    method:"POST",
-                    url:url,
-                    data: this.checkdata
+            axios({
+                method:"POST",
+                url:url,
+                data: this.checkdata
                 })
                 .then((res) => {
                     if(res.status === 200){
