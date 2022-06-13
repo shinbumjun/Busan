@@ -79,6 +79,8 @@ export default {
             })
                 .then((response) => {
                     this.userList = response.data;
+                    console.log("",response.data);
+                    this.$emit("saved")
                 })
                 .catch((error) => {
                     console.log("Failed to get userList", error.response);
