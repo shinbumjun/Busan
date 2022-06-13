@@ -47,15 +47,15 @@
                     </div>
                 </div>
                 <div style="text-align: center">
-                    <input type="checkbox" v-model="checkdata.age" value="10" id="check_10th">
+                    <input type="checkbox" v-model="checkdata.age" true-value="10" id="check_10th">
                     <label for="check_10th"></label>
-                    <input type="checkbox" v-model="checkdata.age" value="20" id="check_20th">
+                    <input type="checkbox" v-model="checkdata.age" true-value="20" id="check_20th">
                     <label for="check_20th"></label>
-                    <input type="checkbox" v-model="checkdata.age" value="30" id="check_30th">
+                    <input type="checkbox" v-model="checkdata.age" true-value="30" id="check_30th">
                     <label for="check_30th"></label>
-                    <input type="checkbox" v-model="checkdata.age" value="40" id="check_40th">
+                    <input type="checkbox" v-model="checkdata.age" true-value="40" id="check_40th">
                     <label for="check_40th"></label>
-                    <input type="checkbox" v-model="checkdata.age" value="50" id="check_50th">
+                    <input type="checkbox" v-model="checkdata.age" true-value="50" id="check_50th">
                     <label for="check_50th"></label>
                 </div>
                 <div class="label2_explain" style=" text-align: center;">
@@ -83,13 +83,13 @@
                     </div>
                 </div>
                 <div style="text-align: center">
-                    <input type="checkbox" v-model="checkdata" value="혼자" id="check_solo">
+                    <input type="checkbox" v-model="checkdata.companion" true-value="혼자" id="check_solo">
                     <label for="check_solo"></label>
-                    <input type="checkbox" v-model="checkdata" value="커플" id="check_couple">
+                    <input type="checkbox" v-model="checkdata.companion" true-value="커플" id="check_couple">
                     <label for="check_couple"></label>
-                    <input type="checkbox" v-model="checkdata" value="friends" id="check_friends">
+                    <input type="checkbox" v-model="checkdata.companion" true-value="친구" id="check_friends">
                     <label for="check_friends"></label>
-                    <input type="checkbox" v-model="checkdata" value="family" id="check_family">
+                    <input type="checkbox" v-model="checkdata.companion" true-value="가족" id="check_family">
                     <label for="check_family"></label>
                 </div>
                 <div class="label3_explain" style=" text-align: center;">
@@ -114,39 +114,39 @@
                 <div>
                     <div class="theme_images" style="text-align: center;">
                         <div>
-                            <input type="checkbox" v-model="checkdata" value="nature" id="check_nature">
+                            <input type="checkbox" v-model="checkdata.theme" true-value="자연" id="check_nature">
                             <label for="check_nature"></label>
                         </div>
                         <div>
-                            <input type="checkbox" v-model="checkdata" value="park" id="check_park">
+                            <input type="checkbox" v-model="checkdata.theme" true-value="공원" id="check_park">
                             <label for="check_park"></label>
                         </div>
                         <div>
-                            <input type="checkbox" v-model="checkdata" value="culture" id="check_culture">
+                            <input type="checkbox" v-model="checkdata.theme" true-value="문화" id="check_culture">
                             <label for="check_culture"></label>
                         </div>
                         <div>
-                            <input type="checkbox" v-model="checkdata" value="shopping" id="check_shopping">
+                            <input type="checkbox" v-model="checkdata.theme" true-value="쇼핑" id="check_shopping">
                             <label for="check_shopping"></label>
                         </div>
                         <div>
-                            <input type="checkbox" v-model="checkdata" value="interesting" id="check_interesting">
+                            <input type="checkbox" v-model="checkdata.theme" true-value="이색여행" id="check_interesting">
                             <label for="check_interesting"></label>
                         </div>
                         <div>
-                            <input type="checkbox" v-model="checkdata" value="history" id="check_history">
+                            <input type="checkbox" v-model="checkdata.theme" true-value="역사" id="check_history">
                             <label for="check_history"></label>
                         </div>
                         <div>
-                            <input type="checkbox" v-model="checkdata" value="걷기" id="check_walking">
+                            <input type="checkbox" v-model="checkdata.theme" true-value="걷기" id="check_walking">
                             <label for="check_walking"></label>
                         </div>
                         <div>
-                            <input type="checkbox" v-model="checkdata" value="experience" id="check_experience">
+                            <input type="checkbox" v-model="checkdata.theme" true-value="체험" id="check_experience">
                             <label for="check_experience"></label>
                         </div>
                         <div>
-                            <input type="checkbox" v-model="checkdata" value="festival" id="check_festival">
+                            <input type="checkbox" v-model="checkdata.theme" true-value="축제" id="check_festival">
                             <label for="check_festival"></label>
                         </div>
                     </div>
@@ -191,21 +191,38 @@
 </template>
 
 <script>
+import axios from "axios";
+let url = "http://127.0.0.1:8000/api/v1/recommendspots/";
+
 export default{
-        data() {
+        data(){
             return {
-                checkdata : [
-                    theme="",
-                    companion="",
-                    age=""
-                ]
-            }
+                checkdata : {
+                    theme:"",
+                    companion:"",
+                    age:"",
+                },
+            };
         },
+        props: ["selectdata"],
         methods: {
             checkOptions : function(){
                 console.log(this.checkdata);
-            }
-        }
+
+                axios({
+                    method:"POST",
+                    url:url,
+                    data: this.checkdata
+                })
+                .then((res) => {
+                    if(res.status === 200){
+                        console.log("",res.data);
+                        this.$emit("checked",this.checkdata)
+                        this.$router.push("/recommand_result");
+                    }
+                });
+            },
+        },
 }
 </script>
 
