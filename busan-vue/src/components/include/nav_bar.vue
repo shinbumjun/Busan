@@ -3,7 +3,7 @@
         <div class="container-fluid">
             
             <button class="navbar-brand BFU" href="#">
-                <router-link to="/">
+                <router-link to="/home">
                     <img src="../../../public/BusanForU Logo3.png">
                 </router-link>
             </button>
