@@ -16,25 +16,49 @@
     <div class="box" style="height: 1000px;">
       <div class="container">
         <br>
-        <h2 class="text-center">커뮤니티 작성</h2>
-        <form action="" method="post" id="insertForm">
+        <h2 class="text-center">커뮤니티 작성</h2>  
+        <div>
             <div class="mb-3">
                 <label class="form-label" for="title">제목</label>
-                <input class="form-control" type="text" name="title" id="title"/>
+                <input class="form-control" type="text" name="title" id="title" v-model="title"/>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="content">내용</label> 
-                <textarea class="form-control"  name="content" id="content"></textarea>
+                <textarea class="form-control"  name="content" id="content" v-model="content"></textarea>
             </div>
-            <button class="btn btn-outline-secondary btn-sm" type="submit">저장</button>
-        </form>
+            <!-- <input type="hidden" id="token" name="token" :value="headers"> -->
+            <button class="btn btn-outline-secondary btn-sm" type="submit" @click="regPosts()">저장</button>
+        </div>
     </div>
     </div>
   </main>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
+  methods: {
+    regPosts() {
+      let params = {
+        // "author": "vue",
+        "title" : this.title,
+        "content" : this.content,
+      }
+      axios.post('http://127.0.0.1:8000/api/v1/board/',
+      JSON.stringify(params), {headers: { 'content-type':
+      'application/json',
+      // 나중에 받아올 토큰값을 적는다. 현재 임시로 test3의 토큰값을 적어놓음.
+      'Authorization': 'token e3594ca771f406537f201cda58706c0cdd773249cd98bc213d4dd746726245e7' 
+      }}
+      ).then(res => {
+        alert("성공적으로 저장되었습니다.\nn글 번호 : [" + res.data + "]")
+        this.$router.push("/community")
+      }).catch(e => {
+        // alert('e.response.data')
+        alert(e+'실패')
+      })
+    }
+  } 
 }
 </script>
 

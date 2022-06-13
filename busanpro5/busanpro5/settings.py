@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     "knox",
-    #'corsheaders',
+    'corsheaders',
     'djoser',
     'touristspots',
     'boards',
@@ -59,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
     'corsheaders.middleware.CorsMiddleware', # django cors 사용
 ]
 
@@ -66,6 +67,7 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8081',
     'http://127.0.0.1:8080',
+
 )
 ROOT_URLCONF = 'busanpro5.urls'
 
@@ -94,21 +96,11 @@ WSGI_APPLICATION = 'busanpro5.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 # db
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
-import pymysql
-pymysql.install_as_MySQLdb()
-
-# db
 DATABASES = {
     'default': {
-
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -167,5 +159,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.AllowAny",
     ],
+
+
 
 }
