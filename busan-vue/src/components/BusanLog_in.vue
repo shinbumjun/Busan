@@ -27,9 +27,11 @@
                 <input v-model="data.password" type="password" id="users_pwd" name="users_pwd"  placeholder="Password" required/>
                 <input @click.prevent="loginSubmit" id = "button" type="submit" value="Log in" style="margin-top:40px;"/>
             </form>
-            <router-link to="/signup">
+            <div style="text-align:center; font-size: 13px; opacity: 0.8; margin-top:15px;">
+                <router-link to="/signup">
                     <a href="" class="find">회원가입이 필요하십니까?</a>
-            </router-link>          
+                </router-link>          
+            </div>
         </div>
     </div>    
 </template>
@@ -145,7 +147,7 @@ export default {
             margin-top: 15px;
         }
         
-        #button:hover{
+        #Login-form #button:hover{
             background-color: rgb(111, 0, 255);
             transition: 0.5s ease-in-out;
         }
@@ -175,6 +177,7 @@ export default {
             outline: 0;
             border-color: rgb(111, 0, 255);
         }
+        #Login-form input
         .find{
             display: flex;
             justify-content: center;
