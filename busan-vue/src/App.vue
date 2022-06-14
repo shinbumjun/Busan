@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <nav_bar v-bind:propsdata="userList"></nav_bar>
-    <router-view v-bind:propsdata="userList" v-bind:userselect="select" v-bind:selecteddata="userSelectResult" v-on:saved="getUserList" v-on:checked="getSelectList"></router-view>    
+    <transition name="fade">
+    <router-view v-bind:propsdata="userList" v-bind:userselect="select" v-bind:selecteddata="userSelectResult" v-on:saved="getUserList" v-on:checked="getSelectList"></router-view>   
+    </transition> 
     <!-- v-bind:하위컴포넌트 속성명="상위 컴포넌트 전달할 데이터명"  -->
     <Main_footer></Main_footer>
   </div>
@@ -107,5 +109,10 @@ export default {
 </script>
 
 <style>
-
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>

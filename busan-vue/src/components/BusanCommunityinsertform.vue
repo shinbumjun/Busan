@@ -31,12 +31,30 @@
         </div>
     </div>
     </div>
+    <ModalView v-if="showModal" @close="showModal = false">
+  <!--
+    you can use custom content here to overwrite
+    default content
+  -->
+      <h3 slot="header">성공!</h3>
+      <div slot="body">정상적으로 저장되었습니다.</div>
+      <div slot="footer">
+        <button class="modal-default-button" @click="modalClose">OK</button>
+      </div>
+    </ModalView>
   </main>
 </template>
 
 <script>
 import axios from 'axios';
+import ModalView from './ModalView.vue';
 export default {
+ data() {
+     return {
+         token: this.$attrs.propsdata.token,
+         showModal: false
+     }
+ },
   methods: {
     regPosts() {
       let params = {
@@ -48,17 +66,26 @@ export default {
       JSON.stringify(params), {headers: { 'content-type':
       'application/json',
       // 나중에 받아올 토큰값을 적는다. 현재 임시로 test3의 토큰값을 적어놓음.
-      'Authorization': 'token d548c2da5d0b412017c3bad825397d0427f8e956ff7d45c4b9b940d05976458d' 
+      // 'Authorization': 'token d548c2da5d0b412017c3bad825397d0427f8e956ff7d45c4b9b940d05976458d'
+      'Authorization': `token ${this.token}`
       }}
       ).then(res => {
-        alert("성공적으로 저장되었습니다.\nn글 번호 : [" + res.data + "]")
-        this.$router.push("/community")
+        console.log(res.data)
+        this.showModal = !this.showModal;
+        // this.$router.push("/community")
       }).catch(e => {
-        // alert('e.response.data')
-        alert(e+'실패')
+        console.log(e);
+        alert("내용을 입력하시오.")
       })
+    },
+    modalClose(){
+      this.showModal = false
+      this.$router.push("/community")
     }
-  } 
+  },
+  components: {
+  ModalView : ModalView
+ } 
 }
 </script>
 

@@ -60,7 +60,12 @@ export default {
     },
     prevPage () {
       this.pageNum -= 1;
-    }
+    },
+    // jsonTrans() {
+    //   let jthe = this.paginatedData ()
+    //   console.log(jthe)
+    //   // return jthe
+    // }
   },
   computed: {
     pageCount () {
@@ -79,11 +84,14 @@ export default {
       const start = this.pageNum * this.pageSize,
             end = start + this.pageSize;
       return this.listArray.slice(start, end);
-    }
+    },
+    // jsonTrans() {
+    //   let jthe = this.paginatedData
+    //   return JSON.parse(jthe)
+    // }
   },
 //    created(){
-//     let a = this.paginatedData()
-//     console.log(a)
+//    jsonTrans();
 //  }
 }
 </script>

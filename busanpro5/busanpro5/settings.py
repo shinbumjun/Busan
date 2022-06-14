@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'touristspots',
     'boards',
     'users',
-    'detail'
+    'detail',
+    'corsheaders',
 
 ]
 
@@ -97,10 +98,7 @@ WSGI_APPLICATION = 'busanpro5.wsgi.application'
 
 # db
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+
 }
 
 # Password validation
