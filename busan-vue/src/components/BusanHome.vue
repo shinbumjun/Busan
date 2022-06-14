@@ -91,7 +91,7 @@
         
         <div class="places">
             <div class="top_1" >
-                <router-link to="/touristspotdetails">
+                <router-link :to="'/touristspotdetails/' + top1.id">
                     <a href="" style="background-color:rgb(224, 240, 253) ;" >
                         <div class="img_div">
                             <img src="../../public/TOP1_yongdoosan.jpeg" class="top_1_img">
@@ -111,7 +111,7 @@
                 </router-link>
             </div>    
             <div class="top_2">
-                <router-link to="/touristspotdetails">
+                <router-link :to="'/touristspotdetails/' + top2.id">
                     <a href="" style="background-color: beige ;">
                         <div class="top_2_explain">
                             <div class="img_div">
@@ -132,7 +132,7 @@
             </div>
             <div class="top_345">
                 <a href="">
-                    <router-link to="/touristspotdetails">
+                    <router-link :to="'/touristspotdetails/' + top3.id">
                         <div class="top_3" style="background-color: rgb(255, 237, 243);">
                             <div class="img_div">
                                 <img src="../../public/Top3_Jagalchi.jpg">
@@ -150,7 +150,7 @@
                     </router-link>
                 </a>
                 <a href="">
-                    <router-link to="/touristspotdetails">
+                    <router-link :to="'/touristspotdetails/' + top4.id">
                         <div class="top_4" style="background-color: rgb(255, 237, 243);">
                             <div class="img_div">
                                 <img src="../../public/Top4_gookjae.jpg">
@@ -168,7 +168,7 @@
                     </router-link>
                 </a>
                 <a href="">
-                    <router-link to="/touristspotdetails">
+                    <router-link :to="'/touristspotdetails/' + top5.id">
                         <div class="top_5" style="background-color: rgb(255, 237, 243);">
                             <div class="img_div">
                                 <img src="../../public/Top5_ggangtong.jpg">
@@ -193,6 +193,55 @@
 <script scoped>
 export default {
     props: ["propsdata"],
+    data(){
+        return{
+            top1:{
+                "id": 39,
+                "name": "용두산공원",
+                "description": "용두산공원이 거기 있기 때문에 부산으로 간다? 맞다. 요즘은 용두산공원이 부산여행의 이유가 되었다. 부산 동부권역에 명소 해운대가 있다면 중부권에는 역시 남포동이 최고의 핫플레이스, 그 중 용두산공원은 부산을 찾는 이들이 빼놓지 않고 찾는 부산 대표 랜드마크다.",
+                "thema": "['문화','공원']",
+                "address": "중구 용두산길 37-55",
+                "get_image": "http://127.0.0.1:8000/uploads/%EC%9A%A9%EB%91%90%EC%82%B0%EA%B3%B5%EC%9B%90.jpeg",
+                "get_thumbnail": "http://127.0.0.1:8000/uploads/%EC%9A%A9%EB%91%90%EC%82%B0%EA%B3%B5%EC%9B%90%EC%8D%B8%EB%84%A4%EC%9D%BC.jpeg"
+            },
+            top2:{
+                "id": 19,
+                "name": "보수동책방골목",
+                "description": "보수동책방골목은 입구 풍경부터 예스러움이 가득 묻어난다. 간판의 글씨체며 켜켜이 쌓여있는 책들이 지나온 세월을 보여준다. 자동화된 차가운 기계의 감촉이 모든 것을 지배하는 이 디지털 시대에 한줄기 따뜻한 아날로그 감성을 전해주는 듯하다.",
+                "thema": "['문화']",
+                "address": "중구 책방골목길 16",
+                "get_image": "http://127.0.0.1:8000/uploads/%EB%B3%B4%EC%88%98%EB%8F%99%EC%B1%85%EB%B0%A9%EA%B3%A8%EB%AA%A9.jpeg",
+                "get_thumbnail": "http://127.0.0.1:8000/uploads/%EB%B3%B4%EC%88%98%EB%8F%99%EC%B1%85%EB%B0%A9%EA%B3%A8%EB%AA%A9%EC%8D%B8%EB%84%A4%EC%9D%BC.jpeg"
+            },
+            top3:{
+                "id": 45,
+                "name": "자갈치시장",
+                "description": "도심에서 바다를 보면서 갓 잡아온 생선회를 먹을 수 있는 곳이 부산 말고 또 있을까? 수평선이 보이는 남해바다를 반찬 삼아 싱싱한 회 한 점과 노릇노릇 잘 구워진 생선구이, 그리고 얼큰하게 끓어낸 매운탕을 함께 한다면 자갈치시장과 부산 바다가 우리 입 안에 가득할 것이다.",
+                "thema": "['쇼핑']",
+                "address": "중구 자갈치해안로 52",
+                "get_image": "http://127.0.0.1:8000/uploads/%EC%9E%90%EA%B0%88%EC%B9%98%EC%8B%9C%EC%9E%A5.jpeg",
+                "get_thumbnail": "http://127.0.0.1:8000/uploads/%EC%9E%90%EA%B0%88%EC%B9%98%EC%8B%9C%EC%9E%A5%EC%8D%B8%EB%84%A4%EC%9D%BC.jpeg"
+            },
+            top4:{
+                "id": 8,
+                "name": "국제시장",
+                "description": "국제시장은 한국전쟁 이후 미군 군수품을 비롯한 온갖 물자들이 피란수도였던 부산으로 몰려들면서 생긴 시장이다. 바로 옆에 붙어있는 부평깡통시장, 자갈치시장, 보수동책방골목 등과 함께 ‘부산 원조 초거대 상권’ 이라고 할 수 있는 국제시장은 영화 ‘국제시장’의 흥행과 함께 제 2의 전성기를 맞았다.",
+                "thema": "['쇼핑']",
+                "address": "부산광역시 중구 중구로 32",
+                "get_image": "http://127.0.0.1:8000/uploads/%EA%B5%AD%EC%A0%9C%EC%8B%9C%EC%9E%A5.jpeg",
+                "get_thumbnail": "http://127.0.0.1:8000/uploads/%EA%B5%AD%EC%A0%9C%EC%8B%9C%EC%9E%A5%EC%8D%B8%EB%84%A4%EC%9D%BC.jpeg"
+            },
+            top5:{
+                "id": 27,
+                "name": "부평깡통시장",
+                "description": "각종 분식과 한식, 서양식 먹거리가 새벽까지 넘쳐나는 곳, 진정한 먹방을 원한다면 골목마다 다양한 음식이 줄지어 우리를 기다리는 부평깡통시장으로 가자!",
+                "thema": "['쇼핑']",
+                "address": "중구 부평1길 48",
+                "get_image": "http://127.0.0.1:8000/uploads/%EB%B6%80%ED%8F%89%EA%B9%A1%ED%86%B5%EC%8B%9C%EC%9E%A5.jpeg",
+                "get_thumbnail": "http://127.0.0.1:8000/uploads/%EB%B6%80%ED%8F%89%EA%B9%A1%ED%86%B5%EC%8B%9C%EC%9E%A5%EC%8D%B8%EB%84%A4%EC%9D%BC.jpeg"
+            }
+        }
+    }
 }
 </script>
 
