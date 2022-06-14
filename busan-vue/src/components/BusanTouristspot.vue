@@ -13,7 +13,7 @@
                 </div>
             </div>
     </div>
-    <div class="box" style="height: 1700px;">
+    <div class="box" style="height: 2300px;">
     <br>
     <h2 class="text-center">관광지</h2>
     <br>

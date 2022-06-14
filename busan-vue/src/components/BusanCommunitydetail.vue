@@ -67,7 +67,7 @@
                 </div>
                 <!-- <input type="hidden" id="token" name="token" :value="headers"> -->
                 <div v-if="!disabled">
-                <button class="btn btn-outline-secondary btn-sm" type="submit" @click="setPosts()">저장</button>
+                <button class="btn btn-outline-secondary btn-sm" type="button" @click="setPosts()">저장</button>
                 </div>
             </div>
         </form>
@@ -80,32 +80,44 @@
                     <p class="page-link" @click="junPage">&larr; Prev</p>
                 </li>
                 <li class="page-item">
-                    <router-link :to="'/communitydetail/' + nextPage"><p class="page-link">Next &rarr;</p></router-link>
+                    <p class="page-link" @click="daumPage">Next &rarr;</p>
                 </li>
             </ul>
         </nav> 
     </div>
     </div>
+        <ModalView v-if="showModal" @close="showModal = false">
+      <!--
+        you can use custom content here to overwrite
+        default content
+      -->
+          <h3 slot="header">성공!</h3>
+          <div slot="body">정상적으로 수정(삭제)되었습니다.</div>
+        </ModalView>
   </main>
 </template>
 
 <script>
 import axios from 'axios';
+import ModalView from './ModalView.vue';
 
 export default {
  data() {
      return {
          disabled: true,
-         items: []
+         items: [],
+         token: this.$attrs.propsdata.token,
+         showModal: false
      }
  },
- created(){
-     axios.get(`/api/v1/board/${this.$route.params.id}/`)
-     .then((response) => this.items = response.data)
-     .catch((err) => console.log(err))
- },
+//  created(){
+//      axios.get(`/api/v1/board/${this.$route.params.id}/`)
+//      .then((response) => this.items = response.data)
+//      .catch((err) => console.log(err))
+//  },
  mounted () {
     this.handleService()
+    this.getPosts()
  },
  computed: {
     prePage () {
@@ -126,6 +138,11 @@ export default {
       this.readMode()
       this.getPosts()
     },
+    getPosts() {
+     axios.get(`/api/v1/board/${this.$route.params.id}/`)
+     .then((response) => this.items = response.data)
+     .catch((err) => console.log(err))
+    },
     readMode() {
       this.disabled = true
     },
@@ -141,34 +158,48 @@ export default {
       JSON.stringify(params), {headers: { 'content-type':
       'application/json',
       // 나중에 받아올 토큰값을 적는다. 현재 임시로 test3의 토큰값을 적어놓음.
-      'Authorization': 'token d548c2da5d0b412017c3bad825397d0427f8e956ff7d45c4b9b940d05976458d' 
+      // 'Authorization': 'token d548c2da5d0b412017c3bad825397d0427f8e956ff7d45c4b9b940d05976458d'
+      'Authorization': `token ${this.token}` 
       }}
       ).then(res => {
         console.log(res.data)
-        alert("성공적으로 수정되었습니다.")
+        this.showModal = !this.showModal;
+        
         this.handleService()
       }).catch(e => {
-        alert(e.response.data)
+        console.log(e);
+        alert("내용을 입력하시오.")
       })
     },
     delPosts() {
       axios.delete(`/api/v1/board/${this.$route.params.id}/`, {headers: { 'content-type':
       'application/json',
       // 나중에 받아올 토큰값을 적는다. 현재 임시로 test3의 토큰값을 적어놓음.
-      'Authorization': 'token d548c2da5d0b412017c3bad825397d0427f8e956ff7d45c4b9b940d05976458d' 
+      // 'Authorization': 'token d548c2da5d0b412017c3bad825397d0427f8e956ff7d45c4b9b940d05976458d'
+      'Authorization': `token ${this.token}` 
       }})
       .then(res => {
         console.log(res.data)
-        alert("성공적으로 삭제되었습니다.")
+        this.showModal = !this.showModal;
         this.$router.push("/community")
       }).catch(e => {
-        alert(e.response.data)
+        console.log(e);
+        alert("삭제가 실패했습니다.")
       })
     },
     junPage() {
         let junNum = this.items.id - 1;
-        this.$router.push(`/communitydetail/${junNum}`)
+        this.$router.push(`/communitydetail/${junNum}`);
+        this.getPosts();
+    },
+    daumPage() {
+        let daumNum = this.items.id + 1;
+        this.$router.push(`/communitydetail/${daumNum}`);
+        this.getPosts();
     }
+ },
+ components: {
+  ModalView : ModalView
  }
 }
 </script>
