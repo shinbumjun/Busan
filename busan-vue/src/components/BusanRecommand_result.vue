@@ -26,49 +26,21 @@
             </div>
             <div class="result" style="background-color: #b7e9ff;">
                 <div class="row" style="margin-left: 150px;margin-right: 150px;">
-                    <div class="col">
+                    <div class="col" v-for="spot in recommand_result" :key="spot.id">
                         <div style="text-align: center;height: 600px;">
-                            <a class="card" href="">
-                                <div>
-                                    <img src="/Recommand_cheonghak.jpg" style="width: 290px; height: 230px;">
-                                </div>
-                                <div class="card_explain">
-                                    <div></div>
-                                    <p>청학 배수지 전망대</p>
-                                    <p style="font-weight: 0;font-size: 15px;">부산광역시 영도구</p>
-                                    <p style="font-weight: 0;font-size: 15px;"># 체험</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div style="text-align: center;height: 600px;">
-                            <a class="card" href="">
-                                <div>
-                                    <img src="/Recommand_yonggoongsa.jpg" style="width: 290px; height: 230px;">
-                                </div>
-                                <div class="card_explain">
-                                    <div></div>
-                                    <p>해동 용궁사</p>
-                                    <p style="font-weight: 0;font-size: 15px;">부산광역시 기장군 기장읍</p>
-                                    <p style="font-weight: 0;font-size: 15px;"># 역사</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div style="text-align: center;height: 600px;">
-                            <a class="card" href="">
-                                <div>
-                                    <img src="/Recommand_hwangtoegill.jpg" style="width: 290px; height: 230px;">
-                                </div>
-                                <div class="card_explain">
-                                    <div></div>
-                                    <p>땅뫼산 황토길</p>
-                                    <p style="font-weight: 0;font-size: 15px;">부산광역시 금정구</p>
-                                    <p style="font-weight: 0;font-size: 15px;"># 자연</p>
-                                </div>
-                            </a>
+                            <router-link :to="'/touristspotdetails/' + spot.id">
+                                <a class="card">
+                                    <div>
+                                        <img :src="spot.get_thumbnail" style="width: 290px; height: 230px;">
+                                    </div>
+                                    <div class="card_explain">
+                                        <div></div>
+                                        <p>{{spot.name}}</p>
+                                        <p style="font-weight: 0;font-size: 15px;">{{spot.address}}</p>
+                                        <p style="font-weight: 0;font-size: 15px;">#{{spot.thema}}</p>
+                                    </div>
+                                </a>
+                            </router-link>
                         </div>
                     </div>
                 </div>
@@ -85,13 +57,17 @@
                 return{
                     theme:"",
                     age:"",
-                    companion:""
+                    companion:"",
+                    recommand_result:[]
                 }
             },created(){
                 this.theme = this.userselect.theme,
                 this.age = this.userselect.age,
-                this.companion = this.userselect.companion
-            },
+                this.companion = this.userselect.companion,
+                this.recommand_result = this.selecteddata
+            },computed:{
+
+            }
     }
         /*
         data() {
@@ -130,11 +106,11 @@
         .subject p:first-child{
             margin-bottom: 0px;
         }    
-
+            
         /* Content CSS*/
         .box2{
             height: 1200px;
-            overflow: hidden;
+            overflow : hidden;
             margin-left: 200px;
             margin-right: 200px;
         }
