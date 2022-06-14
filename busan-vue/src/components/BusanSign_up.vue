@@ -45,7 +45,7 @@
                     <div class="invalid-feedback">이메일 형식을 확인 하세요.</div>
                 </div>
                 <div style="margin-top:50px; padding-top:40px;">
-                    <router-link to="/login">
+                    <router-link to="/">
                         <button @click="sendForm" class="btn btn-primary submit-btn" type="submit" style="border:none; width: 350px;">가 입</button>
                     </router-link>
                 </div>
