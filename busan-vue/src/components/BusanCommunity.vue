@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main style="height:1800px;">
         <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active head">
@@ -99,7 +99,7 @@ export default {
      return {
          items: [],
          pageNum: 0,
-         pageSize: 20,
+         pageSize: 15,
      }
  },
  created(){
