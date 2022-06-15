@@ -13,7 +13,7 @@
                     </div>
                 </div>
         </div>
-        <div class="box" style="height: 1000px;">
+        <div class="box" style="height: 1500px;">
         <div class="container">
             <br/>	
             <h2 class="text-center">커뮤니티</h2>
