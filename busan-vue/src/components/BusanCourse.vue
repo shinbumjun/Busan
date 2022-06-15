@@ -13,7 +13,7 @@
                 </div>
             </div>
     </div>
-    <div class="box" style="height: 2500px;">
+    <div class="box" style="height: 2300px;">
     <div class="container">
         <!-- <p style="border-left: 10px solid #153d73; padding: solid #153d73; font-size: 35px; font-weight: bolder" >문의사항 게시판</p> -->
         <div class="border-start border-5 border-primary my-4 ps-3">
@@ -121,7 +121,7 @@
             </div>
         </div>
         <hr>
-        <div class="border-start border-5 border-primary my-4 ps-3">
+        <div class="border-start border-5 border-primary my-4 ps-3" style="margin-top:30px; border-top: 1px solid 0 black;" >
             오감만족 육월의 여행지  
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-wink-fill text-primary" viewBox="0 0 16 16">
                 <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM7 6.5C7 5.672 6.552 5 6 5s-1 .672-1 1.5S5.448 8 6 8s1-.672 1-1.5zM4.285 9.567a.5.5 0 0 0-.183.683A4.498 4.498 0 0 0 8 12.5a4.5 4.5 0 0 0 3.898-2.25.5.5 0 1 0-.866-.5A3.498 3.498 0 0 1 8 11.5a3.498 3.498 0 0 1-3.032-1.75.5.5 0 0 0-.683-.183zm5.152-3.31a.5.5 0 0 0-.874.486c.33.595.958 1.007 1.687 1.007.73 0 1.356-.412 1.687-1.007a.5.5 0 0 0-.874-.486.934.934 0 0 1-.813.493.934.934 0 0 1-.813-.493z"/>
@@ -252,7 +252,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col" style="margin-top:30px;">
                 <div class="card h-100">
                     <img src="https://www.visitbusan.net/uploadImgs/files/cntnts/20191227202219554_thumbL" class="card-img-top" alt="...">
                     <div class="card-img-overlay text-white">
@@ -292,7 +292,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col" style="margin-top:30px;">
                 <div class="card h-100">
                     <img src="https://www.visitbusan.net/uploadImgs/files/cntnts/20191226151124965_thumbL" class="card-img-top" alt="...">
                     <div class="card-img-overlay text-white">
@@ -324,7 +324,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="col" style="margin-top:30px;">
                 <div class="card h-100">
                     <img src="https://www.visitbusan.net/uploadImgs/files/cntnts/20191222181829937_thumbL" class="card-img-top" alt="...">
                     <div class="card-img-overlay text-white">

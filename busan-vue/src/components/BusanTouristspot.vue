@@ -3,7 +3,7 @@
     <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active head">
-                    <img src="https://cdn.pixabay.com/photo/2017/03/14/16/56/banner-2143727_1280.jpg" class="d-block w-100" >
+                    <img src="https://p4.wallpaperbetter.com/wallpaper/140/352/958/gwangan-bridge-busan-south-korea-wallpaper-3840%C3%972400-wallpaper-preview.jpg" class="d-block w-100" >
                     <div class="d-none d-md-block carousel_subtext">
                         <div class="subject">
                             <p>관광지</p>
@@ -13,9 +13,12 @@
                 </div>
             </div>
     </div>
-    <div class="box" style="height: 2300px;">
+
+    <div class="box" style="height: 2100px;">
+
     <br>
-    <h2 class="text-center">관광지</h2>
+    <div style="vertical-align:center;">
+    </div>
     <br>
     <BusanTouristspotList :list-array="items"></BusanTouristspotList>
     </div>

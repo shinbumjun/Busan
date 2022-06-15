@@ -27,11 +27,12 @@
                 </ul>
                 <div class="navEnd">
                     <button class="Btn" v-if = "propsdata.user.user_id!=null">
-                        <router-link to="/mypage">{{propsdata.user.user_id}}</router-link>
+                        아이디: {{propsdata.user.user_id}}
                     </button>
                     <button class="Btn" v-else>
                         <router-link to="/">로그인</router-link>
                     </button>
+                    <!--
                     <span>|</span>
                     <button class="Btn" >
                         <router-link to="/favorites">
@@ -40,6 +41,7 @@
                             </svg>
                         </router-link>
                     </button>
+                    -->
                 </div>
             </div>
         </div>
@@ -50,9 +52,7 @@
 export default{
     name: 'nav_bar',
     props: ["propsdata"],
-    mounted(){
-        
-    }
+
 }
 </script>
 

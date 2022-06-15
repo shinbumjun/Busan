@@ -1,20 +1,33 @@
 <template>
     <div>
-      <div class="container">
+      <div class="container" style="height:1650px;">
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col" v-for="p in paginatedData" :key="p.id">
+            <div class="col" v-for="p in paginatedData" :key="p.id" >
+              <div style="text-align: center;height: 500px; ">  
                 <router-link :to="'/touristspotdetails/' + p.id">
-                    <div class="card h-100">
-                        <img :src="p.get_thumbnail" class="card-img-top" alt="...">
+                  <a class="card2">
+                      <div>
+                          <img :src="p.get_thumbnail" style="width: 410px; height: 300px;">
+                      </div>
+                      <div class="card2_explain">
+                          <div></div>
+                          <p>{{p.name}}</p>
+                          <p style="font-weight: 0;font-size: 15px;">{{p.address}}</p>
+                          <p style="font-weight: 0;font-size: 15px;">#{{p.thema}}</p>
+                      </div>
+                  </a> 
+                    <!-- <div class=" h-100" style="width:410px; height:500px">
+                        <img :src="p.get_thumbnail" class="card-img-top" alt="..." style="width:410px; height:300px;">
                         <div class="card-body">
                             <h5 class="card-title">{{p.name}}</h5>
-                            <p class="card-text">{{p.address}}</p>
+                            <p class="card-text">{{p.address}}</p>-->
                             <!-- <span class="badge text-bg-dark me-1" v-for="(t,i) in p.thema" :key="i">{{t}}</span> -->
-                            <span class="badge text-bg-dark me-1">{{p.thema}}</span>
+                         <!--   <span class="badge text-bg-dark me-1">{{p.thema}}</span> -->
                             <!-- <span class="badge text-bg-dark me-1">이색여행</span> -->
-                        </div>
-                    </div>
+                        <!--</div>
+                    </div>--> 
                 </router-link>
+              </div>
             </div>
         </div>
       </div>
@@ -97,5 +110,46 @@ export default {
 </script>
 
 <style>
-
+        .col{
+          margin-top: 0px;
+        }
+        .selected_options{
+            vertical-align: middle;
+            display:inline-block; 
+            width:1200px; 
+            color: black;
+            text-align:left; 
+            height: 120px;
+            line-height: 60px;
+            font-family: 'Do Hyeon', sans-serif;
+            font-size: 30px;
+            margin-bottom: 0px;
+            position: absolute;
+            left: 40px;
+            top: 0;
+        }
+        .card2{
+            border: 2px solid rgb(124, 176, 255);
+            width: 410px; 
+            height: 460px; 
+            display: inline-block; 
+            margin-top: 100px; 
+            text-decoration: none;
+        }
+        .card2_explain p{
+            margin-top: 20px;
+            margin-left: 20px;
+            text-align: left;
+            color: black;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .card2 div{
+            overflow: hidden;
+        }
+        .col img:hover{
+            transform: scale(1.2);
+            transition: 0.3s;
+        }
 </style>

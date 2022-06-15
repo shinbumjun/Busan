@@ -1,9 +1,8 @@
 <template>
   <div id="app">
     <nav_bar v-bind:propsdata="userList"></nav_bar>
-    <transition name="fade">
-    <router-view v-bind:propsdata="userList" v-bind:userselect="select" v-bind:selecteddata="userSelectResult" v-on:saved="getUserList" v-on:checked="getSelectList"></router-view>   
-    </transition> 
+    <router-view v-bind:propsdata="userList" v-bind:userselect="select" v-bind:selecteddata="userSelectResult" v-on:saved="getUserList" v-on:checked="getSelectList" v-on:update="updateUserList"></router-view>    
+
     <!-- v-bind:하위컴포넌트 속성명="상위 컴포넌트 전달할 데이터명"  -->
     <Main_footer></Main_footer>
   </div>
@@ -28,7 +27,7 @@ export default {
       userSelectResult:[],
       user:{
         user_id : "",
-        password : ""
+        password : "",
       },
       select:{
         theme: "",
@@ -98,12 +97,11 @@ export default {
           console.log("Failed to get userSelect", error.response);
         });
     },
-    updateUserList:function(){
-
+    updateUserList:function(data){
+        this.userList.user.user_id = data.user_id,
+        this.userList.user.name = data.name,
+        this.userList.user.email = data.email
     },
-    deleteUserList:function(){
-
-    }
   }
 }
 </script>
